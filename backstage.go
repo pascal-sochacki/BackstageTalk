@@ -51,7 +51,8 @@ func NewBackstageStack(scope constructs.Construct, id string, props *BackstageSt
 	cluster.AddHelmChart(&id, &awseks.HelmChartOptions{
 		Repository: jsii.String("https://charts.bitnami.com/bitnami"),
 		Chart:      jsii.String("external-dns"),
-		Release:    jsii.String("6.14.3"),
+		Version:    jsii.String("6.14.3"),
+		Release:    jsii.String("external-dns"),
 		Values: &map[string]interface{}{
 			"zoneIdFilters": []string{*zone.HostedZoneId()},
 			"serviceAccount": map[string]interface{}{
