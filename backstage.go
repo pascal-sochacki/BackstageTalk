@@ -62,26 +62,13 @@ func NewBackstageStack(scope constructs.Construct, id string, props *BackstageSt
 		},
 	})
 
-	//const externalDNSHelm = cluster.addHelmChart( 'external-dns', {
-	//repository: 'https://charts.bitnami.com/bitnami',
-	//	chart: 'external-dns',
-	//		release: 'external-dns',
-	//		version: '6.11.3',
-	//		values: {
-	//	zoneIdFilters: [hostedZone.hostedZoneId],
-	//serviceAccount: {
-	//create: false,
-	//name: externalDNS.serviceAccountName,
-	//},
-	//},
-	//});
-	//
-	//cluster.addHelmChart('nginx-ingress', {
-	//repository: 'https://helm.nginx.com/stable',
-	//chart: 'nginx-ingress',
-	//release: 'nginx-ingress',
-	//version: '0.15.1'
-	//})
+	cluster.AddHelmChart(jsii.String("ingress-nginx"), &awseks.HelmChartOptions{
+		Repository: jsii.String("https://kubernetes.github.io/ingress-nginx"),
+		Chart:      jsii.String("ingress-nginx"),
+		Version:    jsii.String("4.6.0"),
+		Release:    jsii.String("ingress-nginx"),
+	})
+
 	return stack
 }
 
