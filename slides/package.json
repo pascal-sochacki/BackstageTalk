@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=/BackstageTalk/",
     "preview": "vite preview"
   },
   "devDependencies": {
