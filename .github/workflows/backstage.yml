@@ -50,7 +50,7 @@ jobs:
         with:
           context: .
           push: true
-          file: packages/backend/Dockerfile
+          file: backstage/packages/backend/Dockerfile
           #          platforms: linux/arm/v7
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
