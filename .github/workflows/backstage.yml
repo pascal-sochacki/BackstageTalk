@@ -41,7 +41,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: backstage
           push: true
           file: backstage/Dockerfile
           #          platforms: linux/arm/v7
