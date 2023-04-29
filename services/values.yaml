@@ -1,0 +1,21 @@
+external-dns:
+  zoneIdFilters:
+  - Z07786093CGI5XK79BZVV
+  serviceAccount:
+    create: false
+    name: external-dns
+kube-prometheus-stack:
+  grafana:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - grafana.k8s.sochacki.dev
+      tls:
+        - hosts:
+            - grafana.k8s.sochacki.dev
+          secretName: grafana-general-tls
+cert-manager:
+  installCRDs: true

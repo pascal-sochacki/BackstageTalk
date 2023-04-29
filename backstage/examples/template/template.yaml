@@ -43,8 +43,12 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
+        copyWithoutTemplating:
+          - '**/build.yaml'
         url: ./content
         values:
+          repoOwner: ${{ (parameters.repoUrl | parseRepoUrl).owner }}
+          repoName: ${{ (parameters.repoUrl | parseRepoUrl).repo }}
           name: ${{ parameters.name }}
 
     # This step publishes the contents of the working directory to GitHub.
@@ -52,6 +56,7 @@ spec:
       name: Publish
       action: publish:github
       input:
+        repoVisibility: public
         allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}

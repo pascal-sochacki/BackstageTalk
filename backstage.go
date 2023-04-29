@@ -27,9 +27,7 @@ func NewBackstageStack(scope constructs.Construct, id string, props *BackstageSt
 		Version: awseks.KubernetesVersion_V1_25(),
 	})
 
-	zone := awsroute53.HostedZone_FromLookup(stack, &id, &awsroute53.HostedZoneProviderProps{
-		DomainName: jsii.String("k8s.sochacki.dev"),
-	})
+	zone := awsroute53.PublicHostedZone_FromHostedZoneId(stack, jsii.String("hosted-zone"), jsii.String("Z07786093CGI5XK79BZVV"))
 
 	externalDns := cluster.AddServiceAccount(&id, &awseks.ServiceAccountOptions{
 		Name: jsii.String("external-dns"),
@@ -51,48 +49,6 @@ func NewBackstageStack(scope constructs.Construct, id string, props *BackstageSt
 		}),
 	)
 
-	cluster.AddHelmChart(&id, &awseks.HelmChartOptions{
-		Repository: jsii.String("https://charts.bitnami.com/bitnami"),
-		Chart:      jsii.String("external-dns"),
-		Version:    jsii.String("6.14.3"),
-		Release:    jsii.String("external-dns"),
-		Values: &map[string]interface{}{
-			"zoneIdFilters": []string{*zone.HostedZoneId()},
-			"serviceAccount": map[string]interface{}{
-				"create": false,
-				"name":   *externalDns.ServiceAccountName(),
-			},
-		},
-	})
-
-	cluster.AddHelmChart(jsii.String("ingress-nginx"), &awseks.HelmChartOptions{
-		Repository: jsii.String("https://kubernetes.github.io/ingress-nginx"),
-		Chart:      jsii.String("ingress-nginx"),
-		Version:    jsii.String("4.6.0"),
-		Release:    jsii.String("ingress-nginx"),
-	})
-
-	cluster.AddHelmChart(jsii.String("prometheus-community"), &awseks.HelmChartOptions{
-		Repository: jsii.String("https://prometheus-community.github.io/helm-charts"),
-		Chart:      jsii.String("kube-prometheus-stack"),
-		Version:    jsii.String("45.7.1"),
-		Release:    jsii.String("kube-prometheus-stack"),
-	})
-
-	cluster.AddHelmChart(jsii.String("argo-cd"), &awseks.HelmChartOptions{
-		Repository: jsii.String("https://argoproj.github.io/argo-helm"),
-		Chart:      jsii.String("argo-cd"),
-		Version:    jsii.String("5.29.1"),
-		Release:    jsii.String("argo-cd"),
-	})
-
-	cluster.AddHelmChart(jsii.String("crossplane"), &awseks.HelmChartOptions{
-		Repository: jsii.String("https://charts.crossplane.io/stable"),
-		Chart:      jsii.String("crossplane"),
-		Version:    jsii.String("1.11.2"),
-		Release:    jsii.String("crossplane"),
-	})
-
 	crossplaneUser := awsiam.NewUser(stack, jsii.String("crossplane-user"), &awsiam.UserProps{})
 	crossplaneUser.AddToPolicy(awsiam.NewPolicyStatement(&awsiam.PolicyStatementProps{
 		Effect:    awsiam.Effect_ALLOW,
@@ -104,16 +60,6 @@ func NewBackstageStack(scope constructs.Construct, id string, props *BackstageSt
 		User: crossplaneUser,
 	})
 
-	/*
-		apiVersion: v1
-		kind: Secret
-		metadata:
-		  name: aws-secret
-		  namespace: upbound-system
-		stringData:
-		  creds: |
-		    $(printf "[default]\n    aws_access_key_id = %s\n    aws_secret_access_key = %s" "${AWS_KEY}" "${AWS_SECRET}")
-	*/
 	builder := strings.Builder{}
 
 	builder.WriteString("[default]\n")
