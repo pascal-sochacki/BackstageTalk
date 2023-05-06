@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane
+  name: kube-prometheus-stack
 spec:
   destination:
     name: ''
@@ -9,9 +9,12 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ''
-    repoURL: 'https://charts.crossplane.io/stable/'
-    targetRevision: 1.11.2
-    chart: crossplane
+    helm:
+      valueFiles:
+        - kube-prometheus-stack-values.yaml
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 45.21.0
+    chart: kube-prometheus-stack
   sources: []
   project: default
   syncPolicy:
