@@ -46,14 +46,14 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
-    - host: k8s.sochacki.dev
+    - host: backstage.k8s.sochacki.dev
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
     - secretName: backstage-tls
       hosts:
-        - k8s.sochacki.dev
+        - backstage.k8s.sochacki.dev
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
