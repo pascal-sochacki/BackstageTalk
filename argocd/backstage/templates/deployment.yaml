@@ -49,13 +49,10 @@ spec:
             httpGet:
               path: /
               port: http
-          envFrom:
-            - secretRef:
-                name: backstage
           volumeMounts:
             - name: backstage-app-config
-              mountPath: "app/app-config-from-configmap.yaml"
-              subPath: app-config.yaml
+              mountPath: "app/app-config.production.yaml"
+              subPath: app-config.production.yaml
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
