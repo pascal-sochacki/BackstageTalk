@@ -10,8 +10,15 @@ spec:
   source:
     path: ''
     helm:
-      valueFiles:
-        - kube-prometheus-stack-values.yaml
+      parameters:
+        - name: grafana.ingress.enabled
+          value: 'true'
+        - name: grafana.ingress.ingressClassName
+          value: 'nginx'
+        - name: grafana.ingress.annotations.cert-manager\\.io/cluster-issuer
+          value: 'letsencrypt-prod'
+        - name: grafana.ingress.hosts[0]
+          value: "grafana.k8s.sochacki.dev"
     repoURL: 'https://prometheus-community.github.io/helm-charts'
     targetRevision: 45.21.0
     chart: kube-prometheus-stack
