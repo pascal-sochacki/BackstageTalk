@@ -1,21 +1,6 @@
 dependencies:
-- name: external-dns
-  repository: https://charts.bitnami.com/bitnami
-  version: 6.14.3
-- name: ingress-nginx
-  repository: https://kubernetes.github.io/ingress-nginx
-  version: 4.0.13
-- name: kube-prometheus-stack
-  repository: https://prometheus-community.github.io/helm-charts
-  version: 45.21.0
 - name: argo-cd
   repository: https://argoproj.github.io/argo-helm
   version: 5.29.1
-- name: cert-manager
-  repository: https://charts.jetstack.io
-  version: v1.11.1
-- name: crossplane
-  repository: https://charts.crossplane.io/stable/
-  version: 1.11.2
-digest: sha256:d43006f2e03cacd45813dc78a16947b8a9e6bbded1aac1f48890cc76eb4a4775
-generated: "2023-04-27T20:34:01.466478+02:00"
+digest: sha256:bc009287f8e46edcddb1d36d4e6865080d92e97b6572ae2fd4d553d5e41cd2a2
+generated: "2023-05-06T11:08:00.060827+02:00"
