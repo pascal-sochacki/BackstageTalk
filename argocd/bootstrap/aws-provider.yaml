@@ -6,7 +6,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/pascal-sochacki/BackstageTalk'
-    path: aws-provider
+    path: argocd/aws-provider
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
