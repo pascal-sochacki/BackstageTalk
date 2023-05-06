@@ -10,7 +10,7 @@ spec:
   source:
     path: ''
     repoURL: 'https://charts.crossplane.io/stable/'
-    targetRevision: 1.11.1
+    targetRevision: 1.11.2
     chart: crossplane
     helm:
       valueFiles: []
