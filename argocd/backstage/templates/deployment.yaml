@@ -49,6 +49,13 @@ spec:
             httpGet:
               path: /
               port: http
+          command:
+            - "node"
+            - "packages/backend"
+            - "--config"
+            - "app-config.yaml"
+            - "--config"
+            - "app-config.production.yaml"
           env:
             {{- with (index .Values.ingress.hosts 0) }}
             - name: HOST
