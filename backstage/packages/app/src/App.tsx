@@ -27,7 +27,7 @@ import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 
-import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
+import {AlertDisplay, OAuthRequestDialog, SignInPage} from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
@@ -36,6 +36,7 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 import {BackstageTheme, createTheme, darkTheme, genPageTheme, shapes} from "@backstage/theme";
 import {CssBaseline, ThemeProvider} from "@material-ui/core";
 import './font.css';
+import {githubAuthApiRef} from "@backstage/core-plugin-api";
 
 
 const customTheme: BackstageTheme = createTheme({
@@ -127,6 +128,20 @@ const customTheme: BackstageTheme = createTheme({
 
 
 const app = createApp({
+  components: {
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        provider={{
+          id: 'github-auth-provider',
+          title: 'GitHub',
+          message: 'Sign in using GitHub',
+          apiRef: githubAuthApiRef,
+        }}
+      />
+    ),
+  },
   apis,
   themes: [{
     id: 'codecentric',
