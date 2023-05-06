@@ -12,8 +12,6 @@ spec:
     repoURL: 'https://kubernetes.github.io/ingress-nginx'
     targetRevision: 4.0.13
     chart: ingress-nginx
-    helm:
-      valueFiles: []
   sources: []
   project: default
   syncPolicy:

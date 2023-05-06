@@ -9,11 +9,11 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ''
+    helm:
+      valueFiles: []
     repoURL: 'https://charts.crossplane.io/stable/'
     targetRevision: 1.11.2
     chart: crossplane
-    helm:
-      valueFiles: []
   sources: []
   project: default
   syncPolicy:
