@@ -49,6 +49,11 @@ spec:
             httpGet:
               path: /
               port: http
+          env:
+            {{- with (index .Values.ingress.hosts 0) }}
+            - name: HOST
+              value: https://{{ .host }}
+            {{- end }}
           volumeMounts:
             - name: backstage-app-config
               mountPath: "app/app-config.production.yaml"
