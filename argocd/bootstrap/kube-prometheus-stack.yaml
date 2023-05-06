@@ -10,6 +10,7 @@ spec:
   source:
     path: ''
     helm:
+      skipCrds: true
       values: |
         grafana:
           ingress:
@@ -30,7 +31,7 @@ spec:
   project: default
   syncPolicy:
     syncOptions:
-      - Replace=true # This is required to update CRDs
+      - ServerSideApply=true
     automated:
       prune: false
       selfHeal: false
