@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: backstage-app-config
 data:
-  app-config.yaml: |
+  app-config.production.yaml: |
     {{- toYaml .Values.config  | nindent 4 }}

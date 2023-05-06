@@ -49,6 +49,9 @@ spec:
             httpGet:
               path: /
               port: http
+          envFrom:
+            - secretRef:
+                name: backstage
           volumeMounts:
             - name: backstage-app-config
               mountPath: "app/app-config-from-configmap.yaml"
