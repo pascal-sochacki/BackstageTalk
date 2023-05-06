@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 6.19.1
+    chart: external-dns
+    helm:
+      valueFiles: []
+      parameters:
+        - name: serviceAccount.create
+          value: 'false'
+        - name: serviceAccount.name
+          value: 'external-dns'
+        - name: zoneIdFilters
+          value: ["Z07786093CGI5XK79BZVV"]
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
