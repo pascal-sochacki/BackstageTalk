@@ -1,9 +1,4 @@
-external-dns:
-  zoneIdFilters:
-  - Z07786093CGI5XK79BZVV
-  serviceAccount:
-    create: false
-    name: external-dns
+
 kube-prometheus-stack:
   grafana:
     ingress:

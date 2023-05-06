@@ -20,7 +20,7 @@ spec:
         - name: serviceAccount.name
           value: 'external-dns'
         - name: zoneIdFilters
-          value: ["Z07786093CGI5XK79BZVV"]
+          value: "{Z07786093CGI5XK79BZVV}"
   sources: []
   project: default
   syncPolicy:
