@@ -133,13 +133,6 @@ const overviewContent = (
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
-    <Grid item md={8}>
-      <EntityPrometheusAlertCard />
-    </Grid>
-    <Grid item md={6}>
-      <EntityPrometheusGraphCard />
-    </Grid>
-
   </Grid>
 );
 
