@@ -101,7 +101,6 @@ config:
           authProvider: 'serviceAccount'
           skipTLSVerify: false
           skipMetricsLookup: true
-          serviceAccountToken: ${SERVICE_ACCOUNT_TOKEN}
           dashboardUrl: https://kubernetes.default
           dashboardApp: standard
   app:
