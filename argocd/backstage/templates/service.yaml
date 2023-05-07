@@ -4,6 +4,7 @@ metadata:
   name: {{ include "chart.fullname" . }}
   labels:
     {{- include "chart.labels" . | nindent 4 }}
+    backstage.io/kubernetes-id: {{ .Values.backstageLabel }}
 spec:
   type: {{ .Values.service.type }}
   ports:

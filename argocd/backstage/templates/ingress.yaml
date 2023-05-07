@@ -18,6 +18,7 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "chart.labels" . | nindent 4 }}
+    backstage.io/kubernetes-id: {{ .Values.backstageLabel }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
