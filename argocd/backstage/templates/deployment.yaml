@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "chart.fullname" . }}
   labels:
+    backstage.io/kubernetes-id: {{ .Values.backstageLabel }}
     {{- include "chart.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
@@ -18,6 +19,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
+        backstage.io/kubernetes-id: {{ .Values.backstageLabel }}
         {{- include "chart.selectorLabels" . | nindent 8 }}
     spec:
       volumes:
