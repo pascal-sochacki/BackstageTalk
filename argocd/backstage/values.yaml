@@ -129,6 +129,10 @@ config:
        target: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/org.yaml
        rules:
          - allow: [User, Group]
+     - type: url
+       target: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/entities.yaml
+       rules:
+         - allow: [ System, Component, API ]
 
 postgresql:
   global:
