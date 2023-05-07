@@ -1,0 +1,40 @@
+apiVersion: s3.aws.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  name: {{.Values.config.techdocs.publisher.awsS3.bucketName}}
+spec:
+  forProvider:
+    region: eu-central-1
+---
+apiVersion: iam.aws.upbound.io/v1beta1
+kind: User
+metadata:
+  name: tech-docs-backstage-talk-user
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+  forProvider: { }
+---
+apiVersion: iam.aws.upbound.io/v1beta1
+kind: AccessKey
+metadata:
+  name: tech-docs-backstage-talk-access-keys
+spec:
+  forProvider:
+    userSelector:
+      matchLabels:
+        {{- include "chart.labels" . | nindent 8 }}
+  writeConnectionSecretToRef:
+    name: s3-read-secret
+    namespace: default
+---
+apiVersion: iam.aws.upbound.io/v1beta1
+kind: UserPolicyAttachment
+metadata:
+  name: tech-docs-backstage-talk-attachment
+spec:
+  forProvider:
+    userSelector:
+      matchLabels:
+      {{- include "chart.labels" . | nindent 8 }}
+    policyArn: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"

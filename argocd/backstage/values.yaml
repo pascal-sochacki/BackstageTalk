@@ -94,6 +94,11 @@ config:
     '/prometheus/api':
       # url to the api and path of your hosted prometheus instance
       target: http://prometheus-stack-kube-prom-prometheus.default.svc.cluster.local:9090/api/v1/
+  techdocs:
+    publisher:
+      type: 'awsS3'
+      awsS3:
+        bucketName: 'backstage-talk-sochacki'
 
   kubernetes:
     serviceLocatorMethod:
