@@ -46,6 +46,7 @@ metadata:
   name: backstage
   annotations:
     backstage.io/kubernetes-id: backstage
+    prometheus.io/rule: container_memory_usage_bytes{image="ghcr.io/pascal-sochacki/backstagetalk:main"}
 spec:
   type: website
   lifecycle: production

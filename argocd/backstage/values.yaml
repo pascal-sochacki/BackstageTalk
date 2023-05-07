@@ -90,6 +90,10 @@ config:
         development:
           clientId: 15f435e851c3a57d93a3
           clientSecret: ${GITHUB_CLIENT_SECRET}
+  proxy:
+    '/prometheus/api':
+      # url to the api and path of your hosted prometheus instance
+      target: http://prometheus-stack-kube-prom-prometheus.default.svc.cluster.local:9090/api/v1/
 
   kubernetes:
     serviceLocatorMethod:
