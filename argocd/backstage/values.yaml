@@ -92,7 +92,18 @@ config:
   kubernetes:
     serviceLocatorMethod:
       type: 'multiTenant'
-    clusterLocatorMethods: []
+    clusterLocatorMethods:
+      - type: 'config'
+        clusters:
+
+        - url: https://kubernetes.default
+          name: EKS
+          authProvider: 'serviceAccount'
+          skipTLSVerify: false
+          skipMetricsLookup: true
+          serviceAccountToken: ${SERVICE_ACCOUNT_TOKEN}
+          dashboardUrl: https://kubernetes.default
+          dashboardApp: standard
   app:
     # Should be the same as backend.baseUrl when using the `app-backend` plugin.
     baseUrl: ${HOST}

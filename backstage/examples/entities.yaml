@@ -44,6 +44,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: backstage
+  annotations:
+    backstage.io/kubernetes-id: backstage
 spec:
   type: website
   lifecycle: production
