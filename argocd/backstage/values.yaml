@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/pascal-sochacki/backstagetalk
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "main"
 
@@ -89,7 +89,10 @@ config:
           clientId: 15f435e851c3a57d93a3
           clientSecret: ${GITHUB_CLIENT_SECRET}
 
-
+  kubernetes:
+    serviceLocatorMethod:
+      type: 'multiTenant'
+    clusterLocatorMethods: []
   app:
     # Should be the same as backend.baseUrl when using the `app-backend` plugin.
     baseUrl: ${HOST}
