@@ -1,0 +1,10 @@
+site_name: "Backstage"
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core
+
+repo_url: https://gitlab.dev.fjd.de/efast/services/beh/beh-documentation
+edit_uri: edit/main/docs/

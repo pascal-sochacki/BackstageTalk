@@ -45,6 +45,7 @@ kind: Component
 metadata:
   name: backstage
   annotations:
+    backstage.io/techdocs-ref: dir:docs/backstage
     backstage.io/kubernetes-id: backstage
     prometheus.io/rule: container_memory_usage_bytes{image="ghcr.io/pascal-sochacki/backstagetalk:main"}
 spec:
