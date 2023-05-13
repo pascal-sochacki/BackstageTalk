@@ -158,6 +158,10 @@ config:
        target: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/entities.yaml
        rules:
          - allow: [ System, Component, API ]
+     - type: url
+       target: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/template/template.yaml
+       rules:
+         - allow: [ Template ]
 
 postgresql:
   global:
