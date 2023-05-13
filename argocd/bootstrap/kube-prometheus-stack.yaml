@@ -10,7 +10,7 @@ spec:
   source:
     path: ''
     helm:
-      skipCrds: true
+      skipCrds: false
       values: |
         grafana:
           ingress:
