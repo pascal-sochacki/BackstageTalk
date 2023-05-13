@@ -1,1 +1,0 @@
-kubectl create secret docker-registry github --docker-username pascal-sochacki --docker-server ghcr.io --docker-password <TOKEN>

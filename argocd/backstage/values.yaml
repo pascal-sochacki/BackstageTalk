@@ -81,6 +81,12 @@ tolerations: []
 affinity: {}
 
 config:
+
+  integrations:
+    github:
+      - host: github.com
+        token: ${GITHUB_TOKEN}
+
   auth:
     environment: development
     providers:
