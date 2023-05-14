@@ -8,6 +8,18 @@ spec:
   lifecycle: production
   definition:
     $text: ./apis/open-api.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: async-api
+spec:
+  type: asyncapi
+  owner: guest
+  lifecycle: production
+  definition:
+    $text: ./apis/async-api.yaml
+
 
 
 
