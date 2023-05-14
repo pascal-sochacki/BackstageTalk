@@ -23,7 +23,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: async-api
+  name: grpc-api
 spec:
   type: grpc
   owner: guest
