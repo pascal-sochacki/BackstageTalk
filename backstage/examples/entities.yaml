@@ -34,6 +34,7 @@ metadata:
     - backstage
     - idp
   annotations:
+    github.com/project-slug: pascal-sochacki/BackstageTalk
     backstage.io/view-url: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/entities.yaml
     backstage.io/edit-url: https://github.com/pascal-sochacki/BackstageTalk/edit/main/backstage/examples/entities.yaml
     backstage.io/techdocs-ref: dir:docs/backstage
