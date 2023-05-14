@@ -30,3 +30,14 @@ spec:
   lifecycle: production
   definition:
     $text: ./apis/grpc.proto
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: graphql-api
+spec:
+  type: graphql
+  owner: guest
+  lifecycle: production
+  definition:
+    $text: ./apis/graphQL.graphql
