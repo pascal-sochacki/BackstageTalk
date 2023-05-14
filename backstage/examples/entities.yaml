@@ -44,12 +44,55 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: backstage
+  links:
+    - url: "https://backstage.k8s.sochacki.dev"
+      title: Backstage
+      icon: a
+  description: Internal Developer Platform for all Developer! Find Information for your daily doing
+  title: Internal Developer Platform
+  tags:
+    - javascript
+    - backstage
+    - idp
   annotations:
+    backstage.io/view-url: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/entities.yaml
+    backstage.io/edit-url: https://github.com/pascal-sochacki/BackstageTalk/edit/main/backstage/examples/entities.yaml
     backstage.io/techdocs-ref: dir:docs/backstage
     backstage.io/kubernetes-id: backstage
     prometheus.io/rule: container_memory_usage_bytes{image="ghcr.io/pascal-sochacki/backstagetalk:main"}
 spec:
   type: website
   lifecycle: production
+  system: internal-developer-platform
   owner: platform
-
+  dependsOn:
+    - resource:default/tech-docs-bucket
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: tech-docs-bucket
+  description: S3 Bucket for storing the techdocs
+  tags:
+    - aws
+    - s3
+spec:
+  lifecycle: production
+  type: s3-bucket
+  system: internal-developer-platform
+  owner: platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: internal-developer-platform
+spec:
+  owner: platform
+  domain: platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: platform
+spec:
+  owner: platform
