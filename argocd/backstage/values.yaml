@@ -116,7 +116,7 @@ config:
           name: EKS
           authProvider: 'serviceAccount'
           skipTLSVerify: false
-          skipMetricsLookup: true
+          skipMetricsLookup: false
           dashboardUrl: https://kubernetes.default
           dashboardApp: standard
   app:
