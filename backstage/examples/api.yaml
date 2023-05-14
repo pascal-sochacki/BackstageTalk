@@ -4,6 +4,7 @@ metadata:
   name: open-api
 spec:
   type: openapi
+  owner: guest
   lifecycle: production
   definition:
     $text: ./apis/open-api.yaml
