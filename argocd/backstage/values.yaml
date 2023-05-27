@@ -120,6 +120,9 @@ config:
     baseUrl: ${HOST}
 
   backend:
+    csp:
+      frame-ancestors: ["'self'", "'http://localhost:5173'"]
+      connect-src: [ "'self'", 'http:', 'https:' ]
     # Note that the baseUrl should be the URL that the browser and other clients
     # should use when communicating with the backend, i.e. it needs to be
     # reachable not just from within the backend host, but from all of your

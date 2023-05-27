@@ -97,11 +97,6 @@ async function main() {
   apiRouter.use('/search', await search(searchEnv));
   apiRouter.use('/kubernetes', await kubernetes(kubernetesEnv));
 
-  apiRouter.use((_, res, next) => {
-    res.setHeader("Content-Security-Policy", "frame-ancestors http://localhost:5173")
-    next();
-  })
-
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
   apiRouter.use(notFoundHandler());
 
