@@ -71,8 +71,53 @@ spec:
   domain: platform
 ---
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: product-a-system
+spec:
+  owner: product-team-a
+  domain: product-a
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: product-b-system
+spec:
+  owner: product-team-b
+  domain: product-b
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: product-c-system
+spec:
+  owner: product-team-c
+  domain: product-c
+---
+apiVersion: backstage.io/v1alpha1
 kind: Domain
 metadata:
   name: platform
 spec:
   owner: platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: product-a
+spec:
+  owner: product-a
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: product-b
+spec:
+  owner: product-b
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: product-c
+spec:
+  owner: product-c

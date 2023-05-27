@@ -8,19 +8,19 @@
 
 import Router from 'express-promise-router';
 import {
-  createServiceBuilder,
-  loadBackendConfig,
-  getRootLogger,
-  useHotMemoize,
-  notFoundHandler,
   CacheManager,
+  createServiceBuilder,
   DatabaseManager,
+  getRootLogger,
+  loadBackendConfig,
+  notFoundHandler,
+  ServerTokenManager,
   SingleHostDiscovery,
   UrlReaders,
-  ServerTokenManager,
+  useHotMemoize,
 } from '@backstage/backend-common';
-import { TaskScheduler } from '@backstage/backend-tasks';
-import { Config } from '@backstage/config';
+import {TaskScheduler} from '@backstage/backend-tasks';
+import {Config} from '@backstage/config';
 import app from './plugins/app';
 import auth from './plugins/auth';
 import catalog from './plugins/catalog';
@@ -29,16 +29,16 @@ import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
 import search from './plugins/search';
 import kubernetes from './plugins/kubernetes';
-import { PluginEnvironment } from './types';
-import { ServerPermissionClient } from '@backstage/plugin-permission-node';
-import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
+import {PluginEnvironment} from './types';
+import {ServerPermissionClient} from '@backstage/plugin-permission-node';
+import {DefaultIdentityClient} from '@backstage/plugin-auth-node';
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
-  const reader = UrlReaders.default({ logger: root, config });
+  const reader = UrlReaders.default({logger: root, config});
   const discovery = SingleHostDiscovery.fromConfig(config);
   const cacheManager = CacheManager.fromConfig(config);
-  const databaseManager = DatabaseManager.fromConfig(config, { logger: root });
+  const databaseManager = DatabaseManager.fromConfig(config, {logger: root});
   const tokenManager = ServerTokenManager.noop();
   const taskScheduler = TaskScheduler.fromConfig(config);
 
@@ -53,7 +53,7 @@ function makeCreateEnv(config: Config) {
   root.info(`Created UrlReader ${reader}`);
 
   return (plugin: string): PluginEnvironment => {
-    const logger = root.child({ type: 'plugin', plugin });
+    const logger = root.child({type: 'plugin', plugin});
     const database = databaseManager.forPlugin(plugin);
     const cache = cacheManager.forPlugin(plugin);
     const scheduler = taskScheduler.forPlugin(plugin);
@@ -96,6 +96,11 @@ async function main() {
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
   apiRouter.use('/kubernetes', await kubernetes(kubernetesEnv));
+
+  apiRouter.use((_, res, next) => {
+    res.setHeader("Content-Security-Policy", "frame-ancestors http://localhost:5173")
+    next();
+  })
 
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
   apiRouter.use(notFoundHandler());
