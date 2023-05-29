@@ -6,5 +6,5 @@ nav:
 plugins:
   - techdocs-core
 
-repo_url: https://gitlab.dev.fjd.de/efast/services/beh/beh-documentation
-edit_uri: edit/main/docs/
+repo_url: https://github.com/pascal-sochacki/BackstageTalk
+edit_uri: edit/main/backstage/examples/docs/backstage/docs

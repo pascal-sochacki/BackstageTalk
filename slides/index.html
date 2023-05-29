@@ -10,67 +10,67 @@
 <body>
 <div class="reveal">
     <div class="slides">
-                <section data-background="white">
-                    <h3>Backstage</h3>
-                    <p>
-                        <small>Created by <a href="https://www.linkedin.com/in/paso/">Pascal Sochacki</a></small>
-                    </p>
-                </section>
+        <section data-background="white">
+            <h3>Backstage</h3>
+            <p>
+                <small>Created by <a href="https://www.linkedin.com/in/paso/">Pascal Sochacki</a></small>
+            </p>
+        </section>
 
-                <section data-background="white">
-                    <div style="
+        <section data-background="white">
+            <div style="
                             display: grid;
                             grid-template-columns: 1fr 1fr;
                             height: 10px"
-                    >
-                        <img src="/assets/Sochacki_Pascal.jpg">
-                        <div style="padding: 30px">
-                            <h3>About me</h3>
-                            <p>Pascal Sochacki</p>
-                            <p>IT Consultant </p>
-                            <p> codecentric ag</p>
-                            <div style="display: flex; height: 20%">
-                                <div>
-                                    <img src="/assets/qr-gitrepo.png">
-                                    <small>
-                                        Github-Repository zu Slides und Code
-                                    </small>
-                                </div>
-
-                            </div>
+            >
+                <img src="/assets/Sochacki_Pascal.jpg">
+                <div style="padding: 30px">
+                    <h3>About me</h3>
+                    <p>Pascal Sochacki</p>
+                    <p>IT Consultant </p>
+                    <p> codecentric ag</p>
+                    <div style="display: flex; height: 20%">
+                        <div>
+                            <img src="/assets/qr-gitrepo.png">
+                            <small>
+                                Github-Repository zu Slides und Code
+                            </small>
                         </div>
+
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
-                <section>
-                    <h4>Image you would join your company again as new employee and want to deploy a new service, consume a new
-                        service or develop a new feature</h4>
+        <section>
+            <h4>Image you would join your company again as new employee and want to deploy a new service, consume a new
+                service or develop a new feature</h4>
 
-                    <p class="fragment">Which Information do you need</p>
-                    <p class="fragment">Which People do you need</p>
-                    <p class="fragment">Which Guidelines do you need to follow</p>
-                </section>
+            <p class="fragment">Which Information do you need</p>
+            <p class="fragment">Which People do you need</p>
+            <p class="fragment">Which Guidelines do you need to follow</p>
+        </section>
 
 
-                <section>
-                    <h3>Where do you find your Information?</h3>
+        <section>
+            <h3>Where do you find your Information?</h3>
 
-                    <p class="fragment">Jira/Confluence</p>
-                    <p class="fragment">Teams, Slack, Organizational chart</p>
-                    <p class="fragment">Git-Repository</p>
-                    <p class="fragment">E-mails</p>
-                    <p class="fragment">Service-Tickets</p>
-                    <p class="fragment">Meetings</p>
-                    <p class="fragment">Some Wiki-tool</p>
-                </section>
+            <p class="fragment">Jira/Confluence</p>
+            <p class="fragment">Teams, Slack, Organizational chart</p>
+            <p class="fragment">Git-Repository</p>
+            <p class="fragment">E-mails</p>
+            <p class="fragment">Service-Tickets</p>
+            <p class="fragment">Meetings</p>
+            <p class="fragment">Some Wiki-tool</p>
+        </section>
 
-                <section>
-                    <h3>Still motivated?</h3>
-                </section>
+        <section>
+            <h3>Still motivated?</h3>
+        </section>
 
-                <section>
-                    <h3>How thing could be</h3>
-                </section>
+        <section>
+            <h3>How thing could be</h3>
+        </section>
 
         <section>
             <section>
@@ -104,21 +104,187 @@
                     <small>keeps track of ownership and metadata for all the software </small>
                 </div>
                 <div>
-                    <h3>Software Templates</h3>
-                    <small>can help you create Components inside Backstage.</small>
+                    <h3>Tech Docs</h3>
+                    <small>TechDocs is Spotify’s homegrown docs-like-code solution built directly into Backstage</small>
                 </div>
                 <div>
                     <h3>Backstage Search</h3>
-                    <small>Backstage Search lets you find the right information you are looking for in the Backstage ecosystem.</small>
+                    <small>Backstage Search lets you find the right information you are looking for in the Backstage
+                        ecosystem.</small>
                 </div>
                 <div>
-                    <h3>Tech Docs</h3>
-                    <small>TechDocs is Spotify’s homegrown docs-like-code solution built directly into Backstage</small>
+                    <h3>Software Templates</h3>
+                    <small>can help you create Components inside Backstage.</small>
                 </div>
 
             </div>
         </section>
 
+        <section>
+            <section>
+                <h2>Software Catalog</h2>
+                <q cite="https://backstage.io/docs/features/software-catalog/">
+                    The Backstage Software Catalog is a centralized system that keeps track of ownership and metadata
+                    for all the software in your ecosystem (services, websites, libraries, data pipelines, etc). The
+                    catalog is built around the concept of metadata YAML files stored together with the code, which are
+                    then harvested and visualized in Backstage.
+                </q>
+            </section>
+            <section>
+                <h2>Example Yaml</h2>
+                <pre>
+                    <code data-line-numbers="12|4-7|2-12" class="yaml">
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+  annotations:
+    github.com/project-slug: pascal-sochacki/BackstageTalk
+spec:
+  type: website
+  lifecycle: production
+  system: internal-developer-platform
+  owner: platform
+                    </code>
+                </pre>
+                <small>Looks like Kubernetes CRD but isn't</small>
+            </section>
+            <section>
+                <h2>How does this yaml is ingested into backstage?</h2>
+
+                <p class="fragment">Manuell over the UI/API</p>
+                <p class="fragment">Static Configuration</p>
+                <p class="fragment">EntityProvider</p>
+            </section>
+            <section>
+                <h2>EntityProvider</h2>
+                <p>
+                    Internal Api from Backstage to allow ingestion of Entity
+                </p>
+                <p>
+                    Multiple Sources are already implemented like Github, Gitlab & AWS
+                </p>
+            </section>
+            <section>
+                <h2>EntityProvider - Github</h2>
+                <p>
+                    Runs periodic over the all Repository in search of a file named <code>catalog-info.yaml</code> in
+                    the default branch
+                </p>
+                <ul>
+                    <li>Enabled self-service</li>
+                    <li>Close to Code</li>
+                    <li>Developer Workflow</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Let's see this in action</h2>
+
+                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage" target="_blank">Go to
+                    Backstage</a>
+            </section>
+
+            <section>
+                <h4>Relationship between "Parts"</h4>
+                <img src="/assets/software-model-entities.svg" height="100%">
+            </section>
+
+            <section>
+                <h4>Relationship between "Parts"</h4>
+                <pre>
+                    <code data-line-numbers="7-8" class="yaml">
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+spec:
+  dependsOn:
+  - resource:default/tech-docs-bucket
+                    </code>
+                </pre>
+            </section>
+
+
+        </section>
+        <section>
+            <section>
+                <h2>Tech Docs</h2>
+                <q cite="https://backstage.io/docs/features/techdocs/">TechDocs is Spotify’s homegrown docs-like-code
+                    solution built directly into Backstage. </q>
+            </section>
+            <section>
+                Documentation in the same repository as the code
+            </section>
+
+            <section>
+                <h2>Let's see this in action</h2>
+
+                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage" target="_blank">Go to
+                    Backstage</a>
+            </section>
+
+            <section>
+                <h2>Enable Docs</h2>
+                <pre>
+                    <code data-line-numbers="6-7" class="yaml">
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+                    </code>
+                </pre>
+                <small> <code>dir:.</code> points to the <code>mkdocs.yaml</code> file</small>
+            </section>
+
+            <section>
+                <h2><code>mkdocs.yaml</code></h2>
+                <pre>
+                    <code data-line-numbers="4-5|7-8|10-11" class="yaml">
+site_name: "Backstage"
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core
+
+repo_url: https://github.com/pascal-sochacki/BackstageTalk
+edit_uri: edit/main/backstage/examples/docs/backstage/docs
+                    </code>
+                </pre>
+            </section>
+
+            <section>
+                https://www.mkdocs.org
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Backstage Search</h2>
+                <q cite="https://backstage.io/docs/features/search/">Backstage Search lets you find the right
+                    information you are looking for in the Backstage ecosystem.</q>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Software Templates</h2>
+                <q cite="https://backstage.io/docs/features/software-templates/">The Software Templates part of
+                    Backstage is a tool that can help you create Components inside Backstage.</q>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Plugins</h2>
+                <p>All Core Features are also Plugins</p>
+            </section>
+            <section>
+                <h2>Plugins</h2>
+                <p>All Core Features are also Plugins</p>
+            </section>
+        </section>
         <section>
             <h3>Downsides</h3>
 
