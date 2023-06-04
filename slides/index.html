@@ -43,33 +43,46 @@
         </section>
 
         <section>
-            <h4>Image you would join your company again as new employee and want to deploy a new service, consume a new
-                service or develop a new feature</h4>
-
-            <p class="fragment">Which Information do you need</p>
-            <p class="fragment">Which People do you need</p>
-            <p class="fragment">Which Guidelines do you need to follow</p>
+            <h4>Imagine rejoining your company as a new employee and embarking on a journey to deploy a new service,
+                consume a new
+                service, or develop a new feature.</h4>
+            <p class="fragment">What essential information will you require?</p>
+            <p class="fragment">Who are the key individuals you need to collaborate with?</p>
+            <p class="fragment">What guidelines should you adhere to?</p>
         </section>
 
-
         <section>
-            <h3>Where do you find your Information?</h3>
+            <h3>Where can you find the information you need?</h3>
 
             <p class="fragment">Jira/Confluence</p>
             <p class="fragment">Teams, Slack, Organizational chart</p>
-            <p class="fragment">Git-Repository</p>
-            <p class="fragment">E-mails</p>
-            <p class="fragment">Service-Tickets</p>
-            <p class="fragment">Meetings</p>
-            <p class="fragment">Some Wiki-tool</p>
+            <p class="fragment">Code repositories (e.g., Bitbucket, GitLab)</p>
+            <p class="fragment">E-mails and internal communication channels</p>
+            <p class="fragment">Service tickets and incident management systems</p>
+            <p class="fragment">Meetings and team collaborations</p>
+            <p class="fragment">Internal wiki tools (e.g., Notion, Confluence)</p>
+            <p class="fragment">Knowledge base or documentation platforms</p>
         </section>
 
         <section>
-            <h3>Still motivated?</h3>
+            <h4>Are you still motivated?</h4>
         </section>
 
+
         <section>
-            <h3>How thing could be</h3>
+            <p>An internal developer platform, such as one built on Backstage, empowers teams and accelerates innovation
+                by:</p>
+
+            <ul>
+                <li class="fragment">Centralizing service discovery and documentation</li>
+                <li class="fragment">Enabling collaboration and knowledge sharing</li>
+                <li class="fragment">Automating repetitive tasks and reducing manual overhead</li>
+                <li class="fragment">Increasing productivity and reducing time to market</li>
+                <li class="fragment">Fostering a culture of experimentation and continuous improvement</li>
+            </ul>
+
+            <p class="fragment">By providing a unified platform, teams can focus on what they do best: creating
+                exceptional products and services.</p>
         </section>
 
         <section>
@@ -99,20 +112,20 @@
         <section>
             <h2>Core Features</h2>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem">
-                <div>
+                <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Software Catalog</h3>
                     <small>keeps track of ownership and metadata for all the software </small>
                 </div>
-                <div>
+                <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Tech Docs</h3>
                     <small>TechDocs is Spotify’s homegrown docs-like-code solution built directly into Backstage</small>
                 </div>
-                <div>
+                <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Backstage Search</h3>
                     <small>Backstage Search lets you find the right information you are looking for in the Backstage
                         ecosystem.</small>
                 </div>
-                <div>
+                <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Software Templates</h3>
                     <small>can help you create Components inside Backstage.</small>
                 </div>
@@ -157,24 +170,31 @@ spec:
                 <p class="fragment">EntityProvider</p>
             </section>
             <section>
-                <h2>EntityProvider</h2>
+                <h2>EntityProvider: Seamless Ingestion of Entities</h2>
+
                 <p>
-                    Internal Api from Backstage to allow ingestion of Entity
+                    The EntityProvider is an internal API in Backstage that facilitates the smooth ingestion of
+                    entities.
                 </p>
                 <p>
-                    Multiple Sources are already implemented like Github, Gitlab & AWS
+                    It supports multiple sources, including popular platforms like GitHub, GitLab, and AWS, enabling
+                    effortless integration.
                 </p>
             </section>
             <section>
-                <h2>EntityProvider - Github</h2>
+                <h2>EntityProvider - GitHub Integration</h2>
+
                 <p>
-                    Runs periodic over the all Repository in search of a file named <code>catalog-info.yaml</code> in
-                    the default branch
+                    The EntityProvider in Backstage integrates with GitHub repositories to retrieve entity information.
+                </p>
+                <p>
+                    It periodically scans all repositories, searching for a file named <code>catalog-info.yaml</code> in
+                    the default branch.
                 </p>
                 <ul>
-                    <li>Enabled self-service</li>
-                    <li>Close to Code</li>
-                    <li>Developer Workflow</li>
+                    <li>Enables self-service capabilities</li>
+                    <li>Keeps entity information close to the code</li>
+                    <li>Aligns with developer workflows</li>
                 </ul>
             </section>
 
@@ -220,7 +240,8 @@ spec:
             <section>
                 <h2>Let's see this in action</h2>
 
-                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage" target="_blank">Go to
+                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage/docs" target="_blank">Go
+                    to
                     Backstage</a>
             </section>
 
@@ -267,6 +288,24 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
                 <q cite="https://backstage.io/docs/features/search/">Backstage Search lets you find the right
                     information you are looking for in the Backstage ecosystem.</q>
             </section>
+            <section>
+                <p>
+                    Search within your Techdocs and Software Catalog. Plugins can integrate with the search to also
+                    yield results
+                </p>
+
+            </section>
+            <section>
+                <p>
+                    There are multiple Choices for Search Engines
+                </p>
+                <ul>
+                    <li>Elasticsearch/Opensearch</li>
+                    <li>Lunr</li>
+                    <li>Postgres</li>
+                    <li>Roll your own implementation</li>
+                </ul>
+            </section>
         </section>
         <section>
             <section>
@@ -274,15 +313,127 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
                 <q cite="https://backstage.io/docs/features/software-templates/">The Software Templates part of
                     Backstage is a tool that can help you create Components inside Backstage.</q>
             </section>
+            <section>
+                <h2>Creating a New Service: Time-Intensive Process</h2>
+
+                <ul>
+                    <li>Code generation (e.g., Spring Initializer) for project setup</li>
+                    <li>Library installation for required dependencies</li>
+                    <li>Git setup for version control and collaboration</li>
+                    <li>Service configuration to meet specific requirements</li>
+                    <li>CI pipeline setup with comprehensive scanning</li>
+                    <li>Deployment orchestration for seamless production transition</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Launching a New Service: Key Considerations</h2>
+
+                <ul>
+                    <li>Alignment with company standards (Libraries, Frameworks, Language)</li>
+                    <li>Robust security measures (Dependency updates, Security Scanning)</li>
+                    <li>Monitoring and observability tools</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Let's see this in action</h2>
+
+                <a href="https://backstage.k8s.sochacki.dev/create" target="_blank">Go
+                    to
+                    Backstage</a>
+
+            </section>
+
+            <section>
+                <pre>
+                    <code data-line-numbers="1-6|14-24|25-35|41-51|54-61|64-69|74-78" class="yaml" data-trim
+                          data-noescape>
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: example-nodejs-template
+  title: Example Node.js Template
+  description: An example template for the scaffolder that creates a simple Node.js service
+spec:
+  owner: user:guest
+  type: service
+
+  # These parameters are used to generate the input form in the frontend, and are
+  # used to gather input data for the execution of the template.
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  # These steps are executed in the scaffolder backend, using data that we gathered
+  # via the parameters above.
+  steps:
+    # Each step executes an action, in this case one templates files into the working directory.
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        copyWithoutTemplating:
+          - '**/build.yaml'
+        url: ./content
+        values:
+          repoOwner: ${{ (parameters.repoUrl | parseRepoUrl).owner }}
+          repoName: ${{ (parameters.repoUrl | parseRepoUrl).repo }}
+          name: ${{ parameters.name }}
+
+    # This step publishes the contents of the working directory to GitHub.
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        repoVisibility: public
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+
+    # The final step is to register our new component in the catalog.
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  # Outputs are displayed to the user after a successful execution of the template.
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
+                    </code>
+                </pre>
+            </section>
         </section>
         <section>
             <section>
                 <h2>Plugins</h2>
                 <p>All Core Features are also Plugins</p>
-            </section>
-            <section>
-                <h2>Plugins</h2>
-                <p>All Core Features are also Plugins</p>
+                <p>Many <a href="https://backstage.io/plugins" target="_blank">more</a></p>
             </section>
         </section>
         <section>
@@ -290,8 +441,21 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
 
             <p>Not just Configuration you need to "code"</p>
             <p>Software lifecycle</p>
+        </section>
+        <section>
+            <h3>Alternatives and Mention</h3>
 
+            <ul>
+                <li>
+                    <a href="https://www.atlassian.com/software/compass">Atlassian Compass</a>
+                </li>
+                <li>
+                    <a href="https://roadie.io">https://roadie.io Backstage Saas</a>
+                </li>
+            </ul>
 
+            <p>Not just Configuration you need to "code"</p>
+            <p>Software lifecycle</p>
         </section>
 
         <section data-background="white">
