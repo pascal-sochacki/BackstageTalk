@@ -68,28 +68,11 @@
             <h4>Are you still motivated?</h4>
         </section>
 
-
-        <section>
-            <p>An internal developer platform, such as one built on Backstage, empowers teams and accelerates innovation
-                by:</p>
-
-            <ul>
-                <li class="fragment">Centralizing service discovery and documentation</li>
-                <li class="fragment">Enabling collaboration and knowledge sharing</li>
-                <li class="fragment">Automating repetitive tasks and reducing manual overhead</li>
-                <li class="fragment">Increasing productivity and reducing time to market</li>
-                <li class="fragment">Fostering a culture of experimentation and continuous improvement</li>
-            </ul>
-
-            <p class="fragment">By providing a unified platform, teams can focus on what they do best: creating
-                exceptional products and services.</p>
-        </section>
-
         <section>
             <section>
 
                 <img src="/assets/backstage_white.svg">
-                <q cite="https://backstage.io/docs/overview/what-is-backstage">
+                <q cite="https://backstage.io//overview/what-is-backstage">
                     Backstage is an open platform for building developer portals. Powered by a centralized software
                     catalog, Backstage restores order to your microservices and infrastructure and enables your product
                     teams to ship high-quality code quickly — without compromising autonomy.
@@ -110,6 +93,28 @@
         </section>
 
         <section>
+            <section>
+                <h2>Architectural Overview of Backstage</h2>
+                <ul>
+                    <li>Developed with Typescript</li>
+                    <li>Frontend built with React</li>
+                    <li>API powered by Express.js</li>
+                </ul>
+
+                <p>Backstage allows you to fully customize your platform. With TypeScript, you have the freedom to
+                    modify every aspect of your application. Extend its functionality effortlessly by installing plugins
+                    through yarn.</p>
+            </section>
+            <section>
+                <h2>Example Install Plugin</h2>
+
+                <a href="https://github.com/backstage/backstage/tree/master/plugins/github-actions" target="_blank">Example
+                    install
+                    Github Plugin</a>
+            </section>
+        </section>
+
+        <section>
             <h2>Core Features</h2>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem">
                 <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
@@ -118,7 +123,7 @@
                 </div>
                 <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Tech Docs</h3>
-                    <small>TechDocs is Spotify’s homegrown docs-like-code solution built directly into Backstage</small>
+                    <small>TechDocs is Spotify’s homegrown -like-code solution built directly into Backstage</small>
                 </div>
                 <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Backstage Search</h3>
@@ -136,7 +141,7 @@
         <section>
             <section>
                 <h2>Software Catalog</h2>
-                <q cite="https://backstage.io/docs/features/software-catalog/">
+                <q cite="https://backstage.io//features/software-catalog/">
                     The Backstage Software Catalog is a centralized system that keeps track of ownership and metadata
                     for all the software in your ecosystem (services, websites, libraries, data pipelines, etc). The
                     catalog is built around the concept of metadata YAML files stored together with the code, which are
@@ -146,7 +151,7 @@
             <section>
                 <h2>Example Yaml</h2>
                 <pre>
-                    <code data-line-numbers="12|4-7|2-12" class="yaml">
+                    <code data-line-numbers="2-3|4-7|9-12" class="yaml">
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
@@ -199,13 +204,6 @@ spec:
             </section>
 
             <section>
-                <h2>Let's see this in action</h2>
-
-                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage" target="_blank">Go to
-                    Backstage</a>
-            </section>
-
-            <section>
                 <h4>Relationship between "Parts"</h4>
                 <img src="/assets/software-model-entities.svg" height="100%">
             </section>
@@ -220,9 +218,27 @@ metadata:
   name: backstage
 spec:
   dependsOn:
-  - resource:default/tech-docs-bucket
+  - resource:default/tech--bucket
                     </code>
                 </pre>
+            </section>
+
+            <section>
+                <h2>Let's see this in action</h2>
+
+                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage" target="_blank">Go to
+                    Backstage</a>
+            </section>
+
+            <section>
+                <h2>Checklist</h2>
+
+                <ul>
+                    <li>Apis's</li>
+                    <li>Groups & User</li>
+
+                </ul>
+
             </section>
 
 
@@ -230,20 +246,13 @@ spec:
         <section>
             <section>
                 <h2>Tech Docs</h2>
-                <q cite="https://backstage.io/docs/features/techdocs/">TechDocs is Spotify’s homegrown docs-like-code
+                <q cite="https://backstage.io//features/techdocs/">TechDocs is Spotify’s homegrown docs-like-code
                     solution built directly into Backstage. </q>
             </section>
             <section>
                 Documentation in the same repository as the code
             </section>
 
-            <section>
-                <h2>Let's see this in action</h2>
-
-                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage/docs" target="_blank">Go
-                    to
-                    Backstage</a>
-            </section>
 
             <section>
                 <h2>Enable Docs</h2>
@@ -254,14 +263,14 @@ kind: Component
 metadata:
   name: backstage
   annotations:
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/tech-ref: dir:.
                     </code>
                 </pre>
-                <small> <code>dir:.</code> points to the <code>mkdocs.yaml</code> file</small>
+                <small> <code>dir:.</code> points to the <code>mk.yaml</code> file</small>
             </section>
 
             <section>
-                <h2><code>mkdocs.yaml</code></h2>
+                <h2><code>mk.yaml</code></h2>
                 <pre>
                     <code data-line-numbers="4-5|7-8|10-11" class="yaml">
 site_name: "Backstage"
@@ -270,27 +279,36 @@ nav:
   - Home: index.md
 
 plugins:
-  - techdocs-core
+  - tech-core
 
 repo_url: https://github.com/pascal-sochacki/BackstageTalk
-edit_uri: edit/main/backstage/examples/docs/backstage/docs
+edit_uri: edit/main/backstage/examples//backstage/docs
                     </code>
                 </pre>
             </section>
 
             <section>
-                https://www.mkdocs.org
+
+                <img src="/assets/architecture-recommended.svg">
+            </section>
+
+            <section>
+                <h2>Let's see this in action</h2>
+
+                <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage/" target="_blank">Go
+                    to
+                    Backstage</a>
             </section>
         </section>
         <section>
             <section>
                 <h2>Backstage Search</h2>
-                <q cite="https://backstage.io/docs/features/search/">Backstage Search lets you find the right
+                <q cite="https://backstage.io//features/search/">Backstage Search lets you find the right
                     information you are looking for in the Backstage ecosystem.</q>
             </section>
             <section>
                 <p>
-                    Search within your Techdocs and Software Catalog. Plugins can integrate with the search to also
+                    Search within your Tech and Software Catalog. Plugins can integrate with the search to also
                     yield results
                 </p>
 
@@ -310,7 +328,7 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
         <section>
             <section>
                 <h2>Software Templates</h2>
-                <q cite="https://backstage.io/docs/features/software-templates/">The Software Templates part of
+                <q cite="https://backstage.io//features/software-templates/">The Software Templates part of
                     Backstage is a tool that can help you create Components inside Backstage.</q>
             </section>
             <section>
@@ -436,6 +454,23 @@ spec:
                 <p>Many <a href="https://backstage.io/plugins" target="_blank">more</a></p>
             </section>
         </section>
+
+        <section>
+            <p>An internal developer platform, such as one built on Backstage, empowers teams and accelerates innovation
+                by:</p>
+
+            <ul>
+                <li class="fragment">Centralizing service discovery and documentation</li>
+                <li class="fragment">Find ownership</li>
+                <li class="fragment">Fast service Creation</li>
+                <li class="fragment">Homogeneous in services</li>
+            </ul>
+
+            <p class="fragment">By providing a unified platform, teams can focus on what they do best: creating
+                exceptional products and services.</p>
+        </section>
+
+
         <section>
             <h3>Downsides</h3>
 

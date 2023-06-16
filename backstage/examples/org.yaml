@@ -39,8 +39,129 @@ metadata:
 spec:
   memberOf: [platform]
 ---
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
 apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: anna-adler
+spec:
+  name:
+  memberOf: [product-team-a]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: peter-wolf
+spec:
+  memberOf: [product-team-a]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: laura-fuchs
+spec:
+  memberOf: [product-team-a]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: max-bärenfänger
+spec:
+  memberOf: [product-team-a]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: julia-löwenherz
+spec:
+  memberOf: [product-team-a]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: thomas-delfin
+spec:
+  memberOf: [product-team-b]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: sandra-schwan
+spec:
+  memberOf: [product-team-b]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: michael-haifisch
+spec:
+  memberOf: [product-team-b]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: lisa-eichhörnchen
+spec:
+  memberOf: [product-team-b]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: markus-tiger
+spec:
+  memberOf: [product-team-b]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: sarah-krabbe
+spec:
+  memberOf: [product-team-c]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: timo-elefant
+spec:
+  memberOf: [product-team-c]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: melanie-zebra
+spec:
+  memberOf: [product-team-c]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: patrick-hirsch
+spec:
+  memberOf: [product-team-c]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: nina-vogel
+spec:
+  memberOf: [product-team-c]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
+apiVersion: backstage.io/v1alpha1q
 kind: Group
 metadata:
   name: product-team-a

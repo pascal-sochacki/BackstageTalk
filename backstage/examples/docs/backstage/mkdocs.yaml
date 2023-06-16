@@ -2,6 +2,7 @@ site_name: "Backstage"
 
 nav:
   - Home: index.md
+  - More Page: more.md
 
 plugins:
   - techdocs-core
