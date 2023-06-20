@@ -92,27 +92,6 @@
             </section>
         </section>
 
-        <section>
-            <section>
-                <h2>Architectural Overview of Backstage</h2>
-                <ul>
-                    <li>Developed with Typescript</li>
-                    <li>Frontend built with React</li>
-                    <li>API powered by Express.js</li>
-                </ul>
-
-                <p>Backstage allows you to fully customize your platform. With TypeScript, you have the freedom to
-                    modify every aspect of your application. Extend its functionality effortlessly by installing plugins
-                    through yarn.</p>
-            </section>
-            <section>
-                <h2>Example Install Plugin</h2>
-
-                <a href="https://github.com/backstage/backstage/tree/master/plugins/github-actions" target="_blank">Example
-                    install
-                    Github Plugin</a>
-            </section>
-        </section>
 
         <section>
             <h2>Core Features</h2>
@@ -165,7 +144,7 @@ spec:
   owner: platform
                     </code>
                 </pre>
-                <small>Looks like Kubernetes CRD but isn't</small>
+                <small>Looks like Kubernetes CR but isn't</small>
             </section>
             <section>
                 <h2>How does this yaml is ingested into backstage?</h2>
@@ -221,6 +200,7 @@ spec:
   - resource:default/tech--bucket
                     </code>
                 </pre>
+                <small>Looks like Kubernetes CR but isn't</small>
             </section>
 
             <section>
@@ -445,9 +425,29 @@ spec:
         entityRef: ${{ steps['register'].output.entityRef }}
                     </code>
                 </pre>
+                <small>Looks like Kubernetes CR but isn't</small>
             </section>
         </section>
         <section>
+            <section>
+                <h2>Architectural Overview of Backstage</h2>
+                <ul>
+                    <li>Developed with Typescript</li>
+                    <li>Frontend built with React</li>
+                    <li>API powered by Express.js</li>
+                </ul>
+
+                <p>Backstage allows you to fully customize your platform. With TypeScript, you have the freedom to
+                    modify every aspect of your application. Extend its functionality effortlessly by installing plugins
+                    through yarn.</p>
+            </section>
+            <section>
+                <h2>Example Install Plugin</h2>
+
+                <a href="https://github.com/backstage/backstage/tree/master/plugins/github-actions" target="_blank">Example
+                    install
+                    Github Plugin</a>
+            </section>
             <section>
                 <h2>Plugins</h2>
                 <p>All Core Features are also Plugins</p>
