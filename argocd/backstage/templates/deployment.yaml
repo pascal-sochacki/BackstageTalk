@@ -64,16 +64,16 @@ spec:
             - name: HOST
               value: https://{{ .host }}
             {{- end }}
-{{/*            - name: AWS_ACCESS_KEY_ID*/}}
-{{/*              valueFrom:*/}}
-{{/*                secretKeyRef:*/}}
-{{/*                  key: username*/}}
-{{/*                  name: s3-read-secret*/}}
-{{/*            - name: AWS_SECRET_ACCESS_KEY*/}}
-{{/*              valueFrom:*/}}
-{{/*                secretKeyRef:*/}}
-{{/*                  key: password*/}}
-{{/*                  name: s3-read-secret*/}}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: s3-read-secret
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: s3-read-secret
             - name: AWS_REGION
               value: eu-central-1
           envFrom:
