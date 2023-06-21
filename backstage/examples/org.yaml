@@ -161,7 +161,7 @@ spec:
   memberOf: [product-team-c]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
-apiVersion: backstage.io/v1alpha1q
+apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: product-team-a
