@@ -4,7 +4,7 @@ metadata:
   name: open-api
 spec:
   type: openapi
-  owner: guest
+  owner: product-team-b
   lifecycle: production
   definition:
     $text: ./apis/open-api.yaml
@@ -15,7 +15,7 @@ metadata:
   name: async-api
 spec:
   type: asyncapi
-  owner: guest
+  owner: product-team-c
   lifecycle: production
   definition:
     $text: ./apis/async-api.yaml
@@ -26,7 +26,7 @@ metadata:
   name: grpc-api
 spec:
   type: grpc
-  owner: guest
+  owner: product-team-a
   lifecycle: production
   definition:
     $text: ./apis/grpc.proto
@@ -37,7 +37,7 @@ metadata:
   name: graphql-api
 spec:
   type: graphql
-  owner: guest
+  owner: product-team-a
   lifecycle: production
   definition:
     $text: ./apis/graphQL.graphql

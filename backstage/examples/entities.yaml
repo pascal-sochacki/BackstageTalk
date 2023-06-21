@@ -57,6 +57,9 @@ spec:
   lifecycle: production
   system: product-a-system
   owner: product-team-a
+  providesApis:
+    - grpc-api
+    - graphql-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -69,6 +72,8 @@ spec:
   owner: product-team-b
   providesApis:
     - open-api
+  consumesApis:
+    - async-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -79,6 +84,8 @@ spec:
   lifecycle: production
   system: product-c-system
   owner: product-team-c
+  providesApis:
+    - async-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
