@@ -30,10 +30,12 @@
             </p>
         </section>
         <section>
-            <q>Das habe ich noch nie vorher versucht, also bin ich völlig sicher, dass ich es schaffe.</q>
-
-            <q>I've never tried this before, so I'm totally confident that I can do it.</q>
-
+            <div>
+                <q>Das habe ich noch nie vorher versucht, also bin ich völlig sicher, dass ich es schaffe.</q>
+            </div>
+            <div>
+                <q>I've never tried this before, so I'm totally confident that I can do it.</q>
+            </div>
         </section>
 
 
@@ -91,7 +93,7 @@
             <section>
 
                 <img src="/assets/backstage_white.svg">
-                <q cite="https://backstage.io//overview/what-is-backstage">
+                <q cite="https://backstage.io/docs/overview/what-is-backstage">
                     Backstage is an open platform for building developer portals. Powered by a centralized software
                     catalog, Backstage restores order to your microservices and infrastructure and enables your product
                     teams to ship high-quality code quickly — without compromising autonomy.
@@ -117,11 +119,12 @@
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem">
                 <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Software Catalog</h3>
-                    <small>keeps track of ownership and metadata for all the software </small>
+                    <small>keeps track of ownership and metadata for all the software</small>
                 </div>
                 <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Tech Docs</h3>
-                    <small>TechDocs is Spotify’s homegrown -like-code solution built directly into Backstage</small>
+                    <small>TechDocs is Spotify’s homegrown docs-like-code solution built directly into
+                        Backstage.</small>
                 </div>
                 <div style="border: 1px solid #dddddd; padding: 1rem; border-radius: 10px;">
                     <h3>Backstage Search</h3>
@@ -139,7 +142,7 @@
         <section>
             <section>
                 <h2>Software Catalog</h2>
-                <q cite="https://backstage.io//features/software-catalog/">
+                <q cite="https://backstage.io/docs/features/software-catalog/">
                     The Backstage Software Catalog is a centralized system that keeps track of ownership and metadata
                     for all the software in your ecosystem (services, websites, libraries, data pipelines, etc). The
                     catalog is built around the concept of metadata YAML files stored together with the code, which are
@@ -160,7 +163,6 @@
                 <ul>
                     <li>Apis's</li>
                     <li>Groups & User</li>
-
                 </ul>
 
             </section>
@@ -236,7 +238,7 @@ metadata:
   name: backstage
 spec:
   dependsOn:
-  - resource:default/tech--bucket
+  - resource:default/tech-doc-bucket
                     </code>
                 </pre>
                 <small>Looks like Kubernetes CR but isn't</small>
@@ -283,7 +285,7 @@ plugins:
   - tech-core
 
 repo_url: https://github.com/pascal-sochacki/BackstageTalk
-edit_uri: edit/main/backstage/examples//backstage/docs
+edit_uri: edit/main/backstage/examples/docs/backstage/docs
                     </code>
                 </pre>
             </section>
@@ -304,12 +306,12 @@ edit_uri: edit/main/backstage/examples//backstage/docs
         <section>
             <section>
                 <h2>Backstage Search</h2>
-                <q cite="https://backstage.io//features/search/">Backstage Search lets you find the right
+                <q cite="https://backstage.io/docs/features/search/">Backstage Search lets you find the right
                     information you are looking for in the Backstage ecosystem.</q>
             </section>
             <section>
                 <p>
-                    Search within your Tech and Software Catalog. Plugins can integrate with the search to also
+                    Search within your Tech Docs and Software Catalog. Plugins can integrate with the search to also
                     yield results
                 </p>
 
