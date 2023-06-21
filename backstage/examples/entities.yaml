@@ -49,6 +49,36 @@ spec:
     - resource:default/tech-docs-bucket
 ---
 apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-a
+spec:
+  type: website
+  lifecycle: production
+  system: product-a-system
+  owner: product-team-a
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-b
+spec:
+  type: website
+  lifecycle: production
+  system: product-b-system
+  owner: product-team-b
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-c
+spec:
+  type: website
+  lifecycle: production
+  system: product-c-system
+  owner: product-team-c
+---
+apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
   name: tech-docs-bucket
