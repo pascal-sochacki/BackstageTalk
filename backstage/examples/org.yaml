@@ -68,7 +68,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
-  name: max-bärenfänger
+  name: max-baerenfaenger
 spec:
   memberOf: [product-team-a]
 ---
@@ -76,7 +76,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
-  name: julia-löwenherz
+  name: julia-loewenherz
 spec:
   memberOf: [product-team-a]
 ---
@@ -108,7 +108,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
-  name: lisa-eichhörnchen
+  name: lisa-eichhoernchen
 spec:
   memberOf: [product-team-b]
 ---
