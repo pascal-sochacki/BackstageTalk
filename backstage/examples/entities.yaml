@@ -40,6 +40,7 @@ metadata:
     backstage.io/techdocs-ref: dir:docs/backstage
     backstage.io/kubernetes-id: backstage
     prometheus.io/rule: container_memory_usage_bytes{image="ghcr.io/pascal-sochacki/backstagetalk:main"}
+    prometheus.io/alert: Watchdog
 spec:
   type: website
   lifecycle: production
