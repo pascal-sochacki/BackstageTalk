@@ -67,6 +67,8 @@ spec:
   lifecycle: production
   system: product-b-system
   owner: product-team-b
+  providesApi:
+    - open-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
