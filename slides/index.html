@@ -15,30 +15,13 @@
                 Backstage
             </h3>
             <p>
-                Internal Developer Platforms, how do they work and what are your benefits of it?
+                Developer Enablement mit Backstage
             </p>
             <p>
                 <small>Created by <a href="https://www.linkedin.com/in/paso/">Pascal Sochacki</a></small>
             </p>
         </section>
-        <section>
-            <h4>Does anyone recognize this girl?</h4>
-            <img src="/assets/pippi.jpg" height="400px">
-            <p>
-                <small>made with DALL-E</small>
-
-            </p>
-        </section>
-        <section>
-            <div>
-                <q>Das habe ich noch nie vorher versucht, also bin ich völlig sicher, dass ich es schaffe.</q>
-            </div>
-            <div>
-                <q>I've never tried this before, so I'm totally confident that I can do it.</q>
-            </div>
-        </section>
-
-
+        
         <section data-background="white">
             <div style="
                             display: grid;
@@ -49,8 +32,8 @@
                 <div style="padding: 30px">
                     <h3>About me</h3>
                     <p>Pascal Sochacki</p>
-                    <p>IT Consultant </p>
-                    <p> codecentric ag</p>
+                    <p>IT Consultant</p>
+                    <p>codecentric ag</p>
                     <div style="display: flex; height: 20%">
                         <div>
                             <img src="/assets/qr-gitrepo.png">
@@ -65,28 +48,25 @@
         </section>
 
         <section>
-            <h4>Imagine rejoining your company as a new employee and embarking on a journey to deploy a new service,
-                consume a new
-                service, or develop a new feature.</h4>
-            <p class="fragment">What essential information will you require?</p>
-            <p class="fragment">Who are the key individuals you need to collaborate with?</p>
-            <p class="fragment">What guidelines should you adhere to?</p>
+            <h4>Stellen Sie sich vor, Sie treten als neuer Mitarbeiter Ihrem Unternehmen bei und sollen einen neuen Service bereitzustellen, einen neuen Service zu nutzen oder ein neues Feature zu entwickeln.</h4>
+            <p class="fragment">Welche wesentlichen Informationen benötigen Sie?</p>
+            <p class="fragment">Mit welchen Schlüsselpersonen müssen Sie zusammenarbeiten?</p>
+            <p class="fragment">Welchen Richtlinien sollten Sie folgen?</p>
         </section>
 
         <section>
-            <h3>Where can you find the information you need?</h3>
+            <h3> Wo können Sie die benötigten Informationen finden?</h3>
 
             <p class="fragment">Jira/Confluence</p>
             <p class="fragment">Teams, Slack, Organizational chart</p>
             <p class="fragment">Code repositories (e.g., Bitbucket, GitLab)</p>
-            <p class="fragment">E-mails and internal communication channels</p>
-            <p class="fragment">Service tickets and incident management systems</p>
-            <p class="fragment">Meetings and team collaborations</p>
-            <p class="fragment">Internal wiki tools (e.g., Notion, Confluence)</p>
+            <p class="fragment">E-mails und interne Kommunikationskanäle</p>
+            <p class="fragment">Service-Tickets</p>
+            <p class="fragment">Meetings und Teamzusammenarbeit</p>
         </section>
 
         <section>
-            <h4>Are you still motivated?</h4>
+            <h4>Sind Sie immer noch motiviert?</h4>
         </section>
 
         <section>
@@ -151,7 +131,7 @@
             </section>
 
             <section>
-                <h2>Let's see this in action</h2>
+                <h2>Lassen uns das in Aktion sehen!</h2>
 
                 <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage" target="_blank">Go to
                     Backstage</a>
@@ -162,14 +142,14 @@
 
                 <ul>
                     <li>Apis's</li>
-                    <li>Groups & User</li>
+                    <li>Gruppen & Benutzer</li>
                 </ul>
 
             </section>
 
 
             <section>
-                <h2>Example Yaml</h2>
+                <h2>Beispiel Yaml</h2>
                 <pre>
                     <code data-line-numbers="2-3|4-7|9-12" class="yaml">
 apiVersion: backstage.io/v1alpha1
@@ -185,51 +165,46 @@ spec:
   owner: platform
                     </code>
                 </pre>
-                <small>Looks like Kubernetes CR but isn't</small>
+                <small>Es sieht nach einem Kubernetes CR (Custom Resource) aus, ist es aber nicht</small>
             </section>
             <section>
-                <h2>How does this yaml is ingested into backstage?</h2>
+                <h2>Wie wird dieses YAML in Backstage eingefügt?</h2>
 
-                <p class="fragment">Manuell over the UI/API</p>
-                <p class="fragment">Static Configuration</p>
+                <p class="fragment">Manuell über die Benutzeroberfläche (UI)/API</p>
+                <p class="fragment">Statische Konfiguration</p>
                 <p class="fragment">EntityProvider</p>
             </section>
             <section>
-                <h2>EntityProvider: Seamless Ingestion of Entities</h2>
-
+                <h2>EntityProvider: Nahtlose Eingliederung von Entitäten</h2>
                 <p>
-                    The EntityProvider is an internal API in Backstage that facilitates the smooth ingestion of
-                    entities.
+                Der EntityProvider ist eine interne API in Backstage, die die reibungslose Eingliederung von Entitäten ermöglicht.
                 </p>
                 <p>
-                    It supports multiple sources, including popular platforms like GitHub, GitLab, and AWS, enabling
-                    effortless integration.
+                Er unterstützt mehrere Quellen, einschließlich beliebter Plattformen wie GitHub, GitLab und AWS, und ermöglicht eine mühelose Integration.
                 </p>
             </section>
+
             <section>
                 <h2>EntityProvider - GitHub Integration</h2>
-
                 <p>
-                    The EntityProvider in Backstage integrates with GitHub repositories to retrieve entity information.
+                Der EntityProvider in Backstage integriert sich mit GitHub-Repositories, um Entitätsinformationen abzurufen.
                 </p>
                 <p>
-                    It periodically scans all repositories, searching for a file named <code>catalog-info.yaml</code> in
-                    the default branch.
+                Er scannt regelmäßig alle Repositories und sucht nach einer Datei namens <code>catalog-info.yaml</code> im Default-Branch.
                 </p>
                 <ul>
-                    <li>Enables self-service capabilities</li>
-                    <li>Keeps entity information close to the code</li>
-                    <li>Aligns with developer workflows</li>
+                    <li>Ermöglicht Self-Service</li>
+                    <li>Hält Entitätsinformationen nahe am Code</li>
+                    <li>Abgestimmt auf die Arbeitsabläufe von Entwicklern</li>
                 </ul>
             </section>
-
             <section>
-                <h4>Relationship between "Parts"</h4>
+                <h4>Beziehung zwischen "Parts"</h4>
                 <img src="/assets/software-model-entities.svg" height="100%">
             </section>
 
             <section>
-                <h4>Relationship between "Parts"</h4>
+                <h4>Beziehung zwischen "Parts"</h4>
                 <pre>
                     <code data-line-numbers="7-8" class="yaml">
 apiVersion: backstage.io/v1alpha1
@@ -241,7 +216,7 @@ spec:
   - resource:default/tech-doc-bucket
                     </code>
                 </pre>
-                <small>Looks like Kubernetes CR but isn't</small>
+                <small>Es sieht nach einem Kubernetes CR (Custom Resource) aus, ist es aber nicht</small>
             </section>
 
 
@@ -253,12 +228,12 @@ spec:
                     solution built directly into Backstage. </q>
             </section>
             <section>
-                Documentation in the same repository as the code
+                Dokumentation im selben Repository wie der Code
             </section>
 
 
             <section>
-                <h2>Enable Docs</h2>
+                <h2>Dokumentation aktivieren</h2>
                 <pre>
                     <code data-line-numbers="6-7" class="yaml">
 apiVersion: backstage.io/v1alpha1
@@ -269,7 +244,7 @@ metadata:
     backstage.io/tech-ref: dir:.
                     </code>
                 </pre>
-                <small> <code>dir:.</code> points to the <code>mkdocs.yaml</code> file</small>
+                <small> <code>dir:.</code> zeigt auf eine <code>mkdocs.yaml</code> Datei</small>
             </section>
 
             <section>
@@ -296,7 +271,7 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
             </section>
 
             <section>
-                <h2>Let's see this in action</h2>
+                <h2>Lassen uns das in Aktion sehen!</h2>
 
                 <a href="https://backstage.k8s.sochacki.dev/catalog/default/component/backstage/" target="_blank">Go
                     to
@@ -305,26 +280,25 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
         </section>
         <section>
             <section>
-                <h2>Backstage Search</h2>
+                <h2>Backstage Suche</h2>
                 <q cite="https://backstage.io/docs/features/search/">Backstage Search lets you find the right
                     information you are looking for in the Backstage ecosystem.</q>
             </section>
             <section>
                 <p>
-                    Search within your Tech Docs and Software Catalog. Plugins can integrate with the search to also
-                    yield results
+                Suche innerhalb deiner Tech Docs und Software Catalog. Plugins können sich mit der Suche integrieren, um ebenfalls Ergebnisse zu liefern.
                 </p>
 
             </section>
             <section>
                 <p>
-                    There are multiple Choices for Search Engines
+                Es gibt mehrere Auswahlmöglichkeiten für Suchmaschinen.
                 </p>
                 <ul>
                     <li>Elasticsearch/Opensearch</li>
-                    <li>Lunr</li>
+                    <li>Lunr (default)</li>
                     <li>Postgres</li>
-                    <li>Roll your own implementation</li>
+                    <li>Entwickle deine eigene Implementierung.</li>
                 </ul>
             </section>
         </section>
@@ -335,28 +309,26 @@ edit_uri: edit/main/backstage/examples/docs/backstage/docs
                     Backstage is a tool that can help you create Components inside Backstage.</q>
             </section>
             <section>
-                <h2>Creating a New Service: Time-Intensive Process</h2>
-
+                <h2>Erstellung eines neuen Dienstes: Zeitintensiver Prozess</h2>
                 <ul>
-                    <li>Code generation (e.g., Spring Initializer) for project setup</li>
-                    <li>Library installation for required dependencies</li>
-                    <li>Git setup for version control and collaboration</li>
-                    <li>Service configuration to meet specific requirements</li>
-                    <li>CI pipeline setup with comprehensive scanning</li>
-                    <li>Deployment orchestration for seamless production transition</li>
+                    <li>Code-Generierung (z.B. Spring Initializer) für das Projektsetup</li>
+                    <li>Installation von Bibliotheken für benötigte Abhängigkeiten</li>
+                    <li>Git-Setup für Versionskontrolle</li>
+                    <li>Einrichtung einer CI-Pipeline mit umfassender Überprüfung</li>
+                    <li>Deployment</li>
                 </ul>
             </section>
             <section>
-                <h2>Launching a New Service: Key Considerations</h2>
+                <h2>Start eines neuen Dienstes: Wichtige Überlegungen</h2>
 
                 <ul>
-                    <li>Alignment with company standards (Libraries, Frameworks, Language)</li>
-                    <li>Robust security measures (Dependency updates, Security Scanning)</li>
-                    <li>Monitoring and observability tools</li>
+                    <li>Abstimmung mit den Unternehmensstandards (Bibliotheken, Frameworks, Sprache)</li>
+                    <li>Robuste Sicherheitsmaßnahmen (Aktualisierung von Abhängigkeiten, Sicherheitsscans)</li>
+                    <li>Monitoring und observability tools</li>
                 </ul>
             </section>
             <section>
-                <h2>Let's see this in action</h2>
+                <h2>Lassen uns das in Aktion sehen!</h2>
 
                 <a href="https://backstage.k8s.sochacki.dev/create" target="_blank">Go
                     to
@@ -448,24 +420,21 @@ spec:
         entityRef: ${{ steps['register'].output.entityRef }}
                     </code>
                 </pre>
-                <small>Looks like Kubernetes CR but isn't</small>
+                <small>Es sieht nach einem Kubernetes CR (Custom Resource) aus, ist es aber nicht</small>
             </section>
         </section>
         <section>
             <section>
-                <h2>Architectural Overview of Backstage</h2>
+                <h2>Architektonischer Überblick von Backstage</h2>
                 <ul>
-                    <li>Developed with Typescript</li>
-                    <li>Frontend built with React</li>
-                    <li>API powered by Express.js</li>
+                    <li>Entwickelt mit TypeScript</li>
+                    <li>Frontend mit React erstellt</li>
+                    <li>API basiert auf Express.js</li>
                 </ul>
-
-                <p>Backstage allows you to fully customize your platform. With TypeScript, you have the freedom to
-                    modify every aspect of your application. Extend its functionality effortlessly by installing plugins
-                    through yarn.</p>
+                <p>Backstage ermöglicht es Ihnen, Ihre Plattform vollständig anzupassen. Mit TypeScript haben Sie die Freiheit, jeden Aspekt Ihrer Anwendung zu ändern. Erweitern Sie ihre Funktionalität mühelos, indem Sie Plugins über Yarn installieren.</p>
             </section>
-            <section>
-                <h2>Example Install Plugin</h2>
+           <section>
+                <h2>Beispiel installieren Plugin</h2>
 
                 <a href="https://github.com/backstage/backstage/tree/master/plugins/github-actions" target="_blank">Example
                     install
@@ -477,27 +446,20 @@ spec:
                 <p>Many <a href="https://backstage.io/plugins" target="_blank">more</a></p>
             </section>
         </section>
-
         <section>
-            <p>An internal developer platform, such as one built on Backstage, empowers teams and accelerates innovation
-                by:</p>
-
+            <p>Ein internes Entwickler-Plattform, wie zum Beispiel eine auf Backstage aufgebaute Plattform, stärkt Teams und beschleunigt Innovationen, indem sie:</p>
             <ul>
-                <li class="fragment">Centralizing service discovery and documentation</li>
-                <li class="fragment">Find ownership</li>
-                <li class="fragment">Fast service Creation</li>
-                <li class="fragment">Homogeneous in services</li>
+                <li class="fragment">Service-Entdeckung und Dokumentation zentralisiert</li>
+                <li class="fragment">Besitzer identifiziert</li>
+                <li class="fragment">Schnelle Erstellung von Diensten ermöglicht</li>
+                <li class="fragment">Homogenität in den Diensten gewährleistet</li>
             </ul>
-
-            <p class="fragment">By providing a unified platform, teams can focus on what they do best: creating
-                exceptional products and services.</p>
+            <p class="fragment">Indem sie eine vereinheitlichte Plattform bereitstellt, können sich Teams darauf konzentrieren, das Beste aus sich herauszuholen: außergewöhnliche Produkte und Dienstleistungen zu schaffen.</p>
         </section>
-
-
         <section>
-            <h3>Downsides</h3>
+            <h3>Nachteile</h3>
 
-            <p>Not just Configuration you need to "code"</p>
+            <p>Nicht nur Konfiguration, sondern "code"</p>
             <p>Software lifecycle</p>
         </section>
         <section>
@@ -511,9 +473,6 @@ spec:
                     <a href="https://roadie.io">https://roadie.io Backstage Saas</a>
                 </li>
             </ul>
-
-            <p>Not just Configuration you need to "code"</p>
-            <p>Software lifecycle</p>
         </section>
 
         <section data-background="white">
@@ -526,8 +485,8 @@ spec:
                 <div style="padding: 30px">
                     <h3>About me</h3>
                     <p>Pascal Sochacki</p>
-                    <p>IT Consultant </p>
-                    <p> codecentric ag</p>
+                    <p>IT Consultant</p>
+                    <p>codecentric ag</p>
                     <div style="display: flex; height: 20%">
                         <div>
                             <img src="/assets/qr-gitrepo.png">
