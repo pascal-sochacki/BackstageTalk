@@ -26,7 +26,7 @@ export default async function createPlugin(
     timeout: { minutes: 15 },
     // A 3 second delay gives the backend server a chance to initialize before
     // any collators are executed, which may attempt requests against the API.
-    initialDelay: { seconds: 3 },
+    initialDelay: { seconds: 20 },
   });
 
   // Collators are responsible for gathering documents known to plugins. This
