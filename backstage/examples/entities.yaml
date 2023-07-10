@@ -27,8 +27,8 @@ metadata:
     - url: "https://backstage.k8s.sochacki.dev"
       title: Backstage
       icon: a
-  description: Internal Developer Platform for all Developer! Find Information for your daily doing
-  title: Internal Developer Platform
+  description: Internal Developer Portal for all Developer! Find Information for your daily doing
+  title: Internal Developer Portal
   tags:
     - javascript
     - backstage
