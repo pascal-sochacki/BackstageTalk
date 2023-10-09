@@ -5,7 +5,7 @@
     "eu-central-1c"
   ],
   "hosted-zone:account=755135527660:domainName=k8s.sochacki.dev:region=eu-central-1": {
-    "Id": "/hostedzone/Z02440521RRAFHAQDRNWW",
+    "Id": "/hostedzone/Z00970803DXUXWG10CWGA",
     "Name": "k8s.sochacki.dev."
   }
 }
