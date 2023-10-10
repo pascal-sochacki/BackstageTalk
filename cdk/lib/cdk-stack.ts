@@ -1,39 +1,66 @@
 import * as blueprints from "@aws-quickstart/eks-blueprints";
 import { ManagedPolicy } from "aws-cdk-lib/aws-iam";
-import cluster from "cluster";
 import { Construct } from "constructs";
 
-export class ServiceAccounts implements blueprints.ClusterAddOn {
+export class BackstageServiceAccount implements blueprints.ClusterAddOn {
   deploy(clusterInfo: blueprints.ClusterInfo): Promise<Construct> {
     const sa = clusterInfo.cluster.addServiceAccount("sa-read-s3", {
-      name: "sa-read-s3",
+      name: "backstage",
       namespace: "default",
     });
     const role = clusterInfo.cluster.addManifest("empty-role", {
       apiVersion: "rbac.authorization.k8s.io/v1",
-      kind: "Role",
+      kind: "ClusterRole",
       metadata: {
-        name: "empty-role",
+        name: "backstage",
         namespace: "default",
       },
+      rules: [
+        {
+          apiGroups: ["*"],
+          resources: [
+            "pods",
+            "configmaps",
+            "services",
+            "deployments",
+            "replicasets",
+            "horizontalpodautoscalers",
+            "ingresses",
+            "statefulsets",
+            "limitranges",
+            "daemonsets",
+          ],
+          verbs: ["get", "list", "watch"],
+        },
+        {
+          apiGroups: ["batch"],
+          resources: ["jobs", "cronjobs"],
+          verbs: ["get", "list", "watch"],
+        },
+        {
+          apiGroups: ["metrics.k8s.io"],
+          resources: ["pods"],
+          verbs: ["get", "list"],
+        },
+      ],
     });
     const binding = clusterInfo.cluster.addManifest("empty-role-binding", {
       apiVersion: "rbac.authorization.k8s.io/v1",
       kind: "RoleBinding",
       metadata: {
-        name: "empty-role-binding",
+        name: "backstage",
         namespace: "default",
       },
       subjects: [
         {
           kind: "ServiceAccount",
-          name: "sa-read-s3",
+          name: "backstage",
           namespace: "default",
         },
       ],
       roleRef: {
-        kind: "Role",
-        name: "empty-role",
+        kind: "ClusterRole",
+        name: "backstage",
         apiGroup: "rbac.authorization.k8s.io",
       },
     });
