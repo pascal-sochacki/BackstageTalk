@@ -4,13 +4,4 @@ metadata:
   name: {{.Values.config.techdocs.publisher.awsS3.bucketName}}
 spec:
   name: {{.Values.config.techdocs.publisher.awsS3.bucketName}}
----
-apiVersion: iam.services.k8s.aws/v1alpha1
-kind: Role
-metadata:
-  name: tech-docs-backstage-talk-role
-spec:
-  name: tech-docs-backstage-talk-role
-  policies: 
-  - "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 

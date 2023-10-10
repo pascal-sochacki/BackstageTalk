@@ -1,41 +1,48 @@
-import { Stack, StackProps, aws_iam } from "aws-cdk-lib";
-import { Construct } from "constructs";
 import * as blueprints from "@aws-quickstart/eks-blueprints";
-import {
-  createNamespace,
-  supportsALL,
-} from "@aws-quickstart/eks-blueprints/dist/utils";
-import { openStdin } from "process";
+import { ManagedPolicy } from "aws-cdk-lib/aws-iam";
+import cluster from "cluster";
+import { Construct } from "constructs";
 
-export interface CrossplaneProps extends blueprints.HelmAddOnUserProps {}
-
-const defaultProps = {
-  name: "crossplane",
-  namespace: "crossplane",
-  chart: "crossplane",
-  version: "1.11.2",
-  release: "crossplane",
-  repository: "https://charts.crossplane.io/stable/",
-  values: {},
-  createNamespace: true,
-};
-
-@supportsALL
-export class Crossplane extends blueprints.HelmAddOn {
-  private options: CrossplaneProps;
-
-  constructor(props?: CrossplaneProps) {
-    super({ ...defaultProps, ...props });
-    this.options = this.props as CrossplaneProps;
-  }
+export class ServiceAccounts implements blueprints.ClusterAddOn {
   deploy(clusterInfo: blueprints.ClusterInfo): Promise<Construct> {
-    clusterInfo.cluster.addSer;
-    const namespace = createNamespace(
-      this.options.namespace!,
-      clusterInfo.cluster,
+    const sa = clusterInfo.cluster.addServiceAccount("sa-read-s3", {
+      name: "sa-read-s3",
+      namespace: "default",
+    });
+    const role = clusterInfo.cluster.addManifest("empty-role", {
+      apiVersion: "rbac.authorization.k8s.io/v1",
+      kind: "Role",
+      metadata: {
+        name: "empty-role",
+        namespace: "default",
+      },
+    });
+    const binding = clusterInfo.cluster.addManifest("empty-role-binding", {
+      apiVersion: "rbac.authorization.k8s.io/v1",
+      kind: "RoleBinding",
+      metadata: {
+        name: "empty-role-binding",
+        namespace: "default",
+      },
+      subjects: [
+        {
+          kind: "ServiceAccount",
+          name: "sa-read-s3",
+          namespace: "default",
+        },
+      ],
+      roleRef: {
+        kind: "Role",
+        name: "empty-role",
+        apiGroup: "rbac.authorization.k8s.io",
+      },
+    });
+    binding.node.addDependency(sa);
+    binding.node.addDependency(role);
+
+    sa.role.addManagedPolicy(
+      ManagedPolicy.fromAwsManagedPolicyName("AmazonS3FullAccess"),
     );
-    const chart = this.addHelmChart(clusterInfo, this.options);
-    chart.node.addDependency(namespace);
-    return Promise.resolve(chart);
+    return Promise.resolve(sa);
   }
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { App } from "aws-cdk-lib";
 import * as blueprints from "@aws-quickstart/eks-blueprints";
+import { ServiceAccounts } from "../lib/cdk-stack";
 
 const app = new App();
 const hostedZoneName = "k8s.sochacki.dev";
@@ -19,6 +20,7 @@ const addOns: Array<blueprints.ClusterAddOn> = [
   new blueprints.addons.VpcCniAddOn(),
   new blueprints.addons.CoreDnsAddOn(),
   new blueprints.addons.KubeProxyAddOn(),
+  new ServiceAccounts(),
   new blueprints.addons.ExternalDnsAddOn({
     hostedZoneResources: [hostedZoneName], // can be multiple
   }),
