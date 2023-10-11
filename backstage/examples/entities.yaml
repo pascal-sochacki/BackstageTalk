@@ -41,6 +41,7 @@ metadata:
     backstage.io/kubernetes-id: backstage
     prometheus.io/rule: container_memory_usage_bytes{image="ghcr.io/pascal-sochacki/backstagetalk:main"}
     prometheus.io/alert: Watchdog
+    argocd/app-name: backstage
 spec:
   type: website
   lifecycle: production
