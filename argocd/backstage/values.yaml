@@ -161,6 +161,7 @@ config:
     baseUrl: http://blueprints-addon-argocd-server.argocd.svc.cluster.local:80
     username: admin
     password: DontUseInProd
+    appLocatorMethods: []
   catalog:
     # Overrides the default list locations from app-config.yaml as these contain example data.
     # See https://backstage.io/docs/features/software-catalog/#adding-components-to-the-catalog for more details
