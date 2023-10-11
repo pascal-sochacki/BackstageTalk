@@ -13,11 +13,10 @@ export class BackstageServiceAccount implements blueprints.ClusterAddOn {
       kind: "ClusterRole",
       metadata: {
         name: "backstage",
-        namespace: "default",
       },
       rules: [
         {
-          apiGroups: ["*"],
+          apiGroups: [""],
           resources: [
             "pods",
             "configmaps",
@@ -29,6 +28,26 @@ export class BackstageServiceAccount implements blueprints.ClusterAddOn {
             "statefulsets",
             "limitranges",
             "daemonsets",
+          ],
+          verbs: ["get", "list", "watch"],
+        },
+        {
+          apiGroups: ["autoscaling"],
+          resources: ["horizontalpodautoscalers"],
+          verbs: ["get", "list", "watch"],
+        },
+        {
+          apiGroups: ["networking.k8s.io"],
+          resources: ["ingresses"],
+          verbs: ["get", "list", "watch"],
+        },
+        {
+          apiGroups: ["apps"],
+          resources: [
+            "daemonsets",
+            "deployments",
+            "statefulsets",
+            "replicasets",
           ],
           verbs: ["get", "list", "watch"],
         },
@@ -46,7 +65,7 @@ export class BackstageServiceAccount implements blueprints.ClusterAddOn {
     });
     const binding = clusterInfo.cluster.addManifest("empty-role-binding", {
       apiVersion: "rbac.authorization.k8s.io/v1",
-      kind: "RoleBinding",
+      kind: "ClusterRoleBinding",
       metadata: {
         name: "backstage",
         namespace: "default",
