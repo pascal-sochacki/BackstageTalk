@@ -101,8 +101,6 @@ config:
       changeOrigin: true
       # this line is required if your hosted argoCD instance has self-signed certificate
       secure: false
-      headers:
-        Cookie: ${ARGOCD_AUTH_TOKEN}
 
   techdocs:
     builder: "external"
