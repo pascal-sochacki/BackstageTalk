@@ -13,6 +13,9 @@ const addOns: Array<blueprints.ClusterAddOn> = [
       path: "argocd/bootstrap",
     },
     values: {
+      server: {
+        extraArgs: ["--insecure"],
+      },
       configs: {
         secret: {
           argocdServerAdminPassword:

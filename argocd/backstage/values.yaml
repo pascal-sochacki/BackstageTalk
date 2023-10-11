@@ -97,7 +97,7 @@ config:
       target: http://prometheus-stack-kube-prom-prometheus.default.svc.cluster.local:9090/api/v1/
     '/argocd/api':
       # url to the api of your hosted argoCD instance
-      target: http://blueprints-addon-argocd-server.argocd.svc.cluster.local:80/v1/
+      target: http://blueprints-addon-argocd-server.argocd.svc.cluster.local:80/api/v1/
       changeOrigin: true
       # this line is required if your hosted argoCD instance has self-signed certificate
       secure: false
