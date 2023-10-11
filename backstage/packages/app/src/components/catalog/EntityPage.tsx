@@ -31,7 +31,6 @@ import {
   EntityGithubActionsContent,
 } from '@backstage/plugin-github-actions';
 import {
-  EntityArgoCDHistoryCard,
   EntityArgoCDOverviewCard,
   EntityArgoCDContent,
   isArgocdAvailable,
@@ -132,15 +131,12 @@ const overviewContent = (
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
     </Grid>
-    <Grid item md={8} xs={12}>
+    <Grid item md={4} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
     <EntitySwitch>
       <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
-        <Grid item sm={6}>
-          <EntityArgoCDHistoryCard />
-        </Grid>
-        <Grid item sm={6}>
+        <Grid item md={4} xs={12}>
           <EntityArgoCDOverviewCard />
         </Grid>
       </EntitySwitch.Case>
