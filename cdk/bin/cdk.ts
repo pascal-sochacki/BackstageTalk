@@ -30,12 +30,14 @@ const addOns: Array<blueprints.ClusterAddOn> = [
   new blueprints.addons.CertManagerAddOn(),
   new blueprints.addons.AckAddOn({
     id: "s3-ack",
-    createNamespace: true,
+    createNamespace: false,
+    namespace: "default",
     serviceName: blueprints.AckServiceName.S3,
   }),
   new blueprints.addons.AckAddOn({
     id: "iam-ack",
     createNamespace: false,
+    namespace: "default",
     serviceName: blueprints.AckServiceName.IAM,
   }),
 ];

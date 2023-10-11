@@ -31,6 +31,12 @@ import {
   EntityGithubActionsContent,
 } from '@backstage/plugin-github-actions';
 import {
+  EntityArgoCDHistoryCard,
+  EntityArgoCDOverviewCard,
+  EntityArgoCDContent,
+  isArgocdAvailable,
+} from '@roadiehq/backstage-plugin-argo-cd';
+import {
   EntityUserProfileCard,
   EntityGroupProfileCard,
   EntityMembersListCard,
@@ -56,9 +62,7 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
-import {
-  EntityPrometheusContent,
-} from "@roadiehq/backstage-plugin-prometheus";
+import { EntityPrometheusContent } from '@roadiehq/backstage-plugin-prometheus';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -131,6 +135,16 @@ const overviewContent = (
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
+    <EntitySwitch>
+      <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
+        <Grid item sm={6}>
+          <EntityArgoCDHistoryCard />
+        </Grid>
+        <Grid item sm={6}>
+          <EntityArgoCDOverviewCard />
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
   </Grid>
 );
 
@@ -184,6 +198,9 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/prometheus" title="Prometheus">
       <EntityPrometheusContent />
+    </EntityLayout.Route>
+    <EntityLayout.Route path="/argocd" title="Argo CD">
+      <EntityArgoCDContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
