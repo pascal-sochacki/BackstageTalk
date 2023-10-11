@@ -95,6 +95,15 @@ config:
     '/prometheus/api':
       # url to the api and path of your hosted prometheus instance
       target: http://prometheus-stack-kube-prom-prometheus.default.svc.cluster.local:9090/api/v1/
+    '/argocd/api':
+      # url to the api of your hosted argoCD instance
+      target: http://blueprints-addon-argocd-server.argocd.svc.cluster.local:80/v1/
+      changeOrigin: true
+      # this line is required if your hosted argoCD instance has self-signed certificate
+      secure: false
+      headers:
+        Cookie: ${ARGOCD_AUTH_TOKEN}
+
   techdocs:
     builder: "external"
     publisher:
@@ -148,6 +157,10 @@ config:
         #   ca: # if you have a CA file and want to verify it you can uncomment this section
         #     $file: <file-path>/ca/server.crt
 
+  argocd:
+    baseUrl: http://blueprints-addon-argocd-server.argocd.svc.cluster.local:80
+    username: admin
+    password: DontUseInProd
   catalog:
     # Overrides the default list locations from app-config.yaml as these contain example data.
     # See https://backstage.io/docs/features/software-catalog/#adding-components-to-the-catalog for more details
