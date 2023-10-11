@@ -12,6 +12,14 @@ const addOns: Array<blueprints.ClusterAddOn> = [
       repoUrl: "https://github.com/pascal-sochacki/BackstageTalk",
       path: "argocd/bootstrap",
     },
+    values: {
+      configs: {
+        secret: {
+          argocdServerAdminPassword:
+            "$2a$10$T1xBoCNPyFoCyPhkw7nB9e8GSxBNoutYgGqPpwzaP9QRypM92dWEa",
+        },
+      },
+    },
   }),
   new blueprints.addons.CalicoOperatorAddOn(),
   new blueprints.addons.MetricsServerAddOn(),
