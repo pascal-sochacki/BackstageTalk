@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "chart.fullname" . }}
   labels:
+    app: backstage
     backstage.io/kubernetes-id: {{ .Values.backstageLabel }}
     {{- include "chart.labels" . | nindent 4 }}
 spec:
