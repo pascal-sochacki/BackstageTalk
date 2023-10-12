@@ -2,6 +2,7 @@
 import { App } from "aws-cdk-lib";
 import * as blueprints from "@aws-quickstart/eks-blueprints";
 import { BackstageServiceAccount } from "../lib/cdk-stack";
+import { KubecostAddOn } from "@kubecost/kubecost-eks-blueprints-addon";
 
 const app = new App();
 const hostedZoneName = "k8s.sochacki.dev";
@@ -26,9 +27,28 @@ const addOns: Array<blueprints.ClusterAddOn> = [
   }),
   new blueprints.addons.CalicoOperatorAddOn(),
   new blueprints.addons.MetricsServerAddOn(),
+  new blueprints.addons.EbsCsiDriverAddOn(),
   new blueprints.addons.ClusterAutoScalerAddOn(),
   new blueprints.addons.AwsLoadBalancerControllerAddOn(),
   new blueprints.addons.VpcCniAddOn(),
+  new KubecostAddOn({
+    values: {
+      kubecostMetrics: {
+        emitPodAnnotations: true,
+        emitNamespaceAnnotations: true,
+      },
+      prometheus: {
+        nodeExporter: {
+          enabled: false,
+        },
+        serviceAccounts: {
+          nodeExporter: {
+            create: false,
+          },
+        },
+      },
+    },
+  }),
   new blueprints.addons.CoreDnsAddOn(),
   new blueprints.addons.KubeProxyAddOn(),
   new BackstageServiceAccount(),

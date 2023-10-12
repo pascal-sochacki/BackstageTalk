@@ -62,6 +62,10 @@ import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
 import { EntityPrometheusContent } from '@roadiehq/backstage-plugin-prometheus';
+import {
+  BackstagePluginKubecostPage,
+  isKubecostAvailable,
+} from '@suxess-it/backstage-plugin-kubecost';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -197,6 +201,13 @@ const websiteEntityPage = (
     </EntityLayout.Route>
     <EntityLayout.Route path="/argocd" title="Argo CD">
       <EntityArgoCDContent />
+    </EntityLayout.Route>
+    <EntityLayout.Route
+      if={isKubecostAvailable}
+      path="/kubecost"
+      title="Kubecost"
+    >
+      <BackstagePluginKubecostPage />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">

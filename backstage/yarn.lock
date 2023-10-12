@@ -2387,7 +2387,7 @@
     zen-observable "^0.10.0"
     zod "^3.21.4"
 
-"@backstage/core-components@^0.13.0", "@backstage/core-components@^0.13.5":
+"@backstage/core-components@^0.13.0", "@backstage/core-components@^0.13.1", "@backstage/core-components@^0.13.5":
   version "0.13.5"
   resolved "https://registry.yarnpkg.com/@backstage/core-components/-/core-components-0.13.5.tgz#acdd166c0536941d401dfc29d49dd45c38f8c89e"
   integrity sha512-1loR9Cxxcfo8z7+8NAwQHrjnaHn0Hq3uTSnvtuDsGzh80vhGMxsCnXya0nCYrFvVJIvNI0YYkhoIAOap7aUxDQ==
@@ -3602,6 +3602,13 @@
   version "0.2.19"
   resolved "https://registry.yarnpkg.com/@backstage/theme/-/theme-0.2.19.tgz#6385729849e8caee069056b819135609d7bfd5cf"
   integrity sha512-W9smhIlQZ0jHOCNnRsWbNIhQ2QEmophCFxN89uxQcOILwP5p3YoRsa8S8Lz1yFDMfWiS7gLEk2cpl6RybBVgwQ==
+  dependencies:
+    "@material-ui/core" "^4.12.2"
+
+"@backstage/theme@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@backstage/theme/-/theme-0.3.0.tgz#453f1200578dac1a9e65182cccceb6e5bac14b50"
+  integrity sha512-em6tubxECvYBEJrboPGwc0pEtt0BZD0ujPSHbxXMslUfhpMfGELYvfupKmegm//iQl8D6wP8D/B6tIMx5YvjtQ==
   dependencies:
     "@material-ui/core" "^4.12.2"
 
@@ -7340,6 +7347,19 @@
   integrity sha512-KUfWr83g70Qm+ZqjGL+M4tX01taDP3BldQcI6NSMlDf7WTDfuo0RvLlS0ekF6dPVslNyZhbFFBy2OBTB6Sa6+Q==
   dependencies:
     loader-utils "^1.1.0"
+
+"@suxess-it/backstage-plugin-kubecost@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@suxess-it/backstage-plugin-kubecost/-/backstage-plugin-kubecost-0.2.2.tgz#74b5e07dedb4ea05fb294337ee63025a4d02679b"
+  integrity sha512-xSQdKv20Bc/W4IHIYVvMb9iwEYwzPf/wMHRfc4myTnHwGcIpzoGG4rbrR/0jzQpqyNQgOrGnQ1C7NxKRfa1n7Q==
+  dependencies:
+    "@backstage/core-components" "^0.13.1"
+    "@backstage/core-plugin-api" "^1.5.1"
+    "@backstage/theme" "^0.3.0"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.61"
+    react "^16.13.1"
 
 "@svgr/babel-plugin-add-jsx-attribute@^6.5.1":
   version "6.5.1"
@@ -20107,6 +20127,15 @@ react-window@^1.8.6:
   dependencies:
     "@babel/runtime" "^7.0.0"
     memoize-one ">=3.1.1 <6"
+
+react@^16.13.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^17.0.2:
   version "17.0.2"
