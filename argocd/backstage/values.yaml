@@ -159,7 +159,7 @@ config:
         #     $file: <file-path>/ca/server.crt
   kubecost:
     baseUrl: http://backstage.k8s.sochacki.dev/api/proxy/kubecost/api
-    sharedNamespaces: default
+    sharedNamespaces: external-dns,argocd
     queryframes: week,yesterday,today
 
 

@@ -34,7 +34,7 @@ metadata:
     - backstage
     - idp
   annotations:
-    kubecost.com/deployment-name: "'backstage'"
+    kubecost.com/deployment-name: backstage
     github.com/project-slug: pascal-sochacki/BackstageTalk
     backstage.io/view-url: https://github.com/pascal-sochacki/BackstageTalk/blob/main/backstage/examples/entities.yaml
     backstage.io/edit-url: https://github.com/pascal-sochacki/BackstageTalk/edit/main/backstage/examples/entities.yaml
